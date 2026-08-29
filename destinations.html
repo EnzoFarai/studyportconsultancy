@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Destinations – Scholar Port Consultancy</title>
+    <meta name="description" content="Study in India, China, Cyprus, Poland, Turkey, Germany, Georgia, and the USA with Scholar Port Consultancy.">
+    <link rel="canonical" href="https://scholarportconsultancy.github.io/destinations.html">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, #1A2A33, #21566E);
+            color: white;
+            text-align: center;
+            padding: 140px 0 70px;
+            margin-top: 70px;
+        }
+        .page-hero h1 { font-size: 2.8rem; font-weight: 800; }
+        .page-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 10px auto 0; }
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .dest-card-large {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #f0ebe5;
+            transition: var(--transition);
+            scroll-margin-top: 100px;
+        }
+        .dest-card-large:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(33,86,110,0.12); }
+        .dest-card-large .dest-img { height: 160px; background: var(--light); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--primary); }
+        .dest-card-large .dest-body { padding: 20px; }
+        .dest-card-large h3 { color: var(--primary); margin-bottom: 8px; }
+        .dest-card-large p { color: var(--gray); font-size: 0.9rem; margin-bottom: 15px; }
+        .dest-card-large .btn { font-size: 0.85rem; padding: 10px 20px; }
+        .dest-features { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+        .dest-features span { background: var(--light); padding: 3px 12px; border-radius: 20px; font-size: 0.7rem; color: var(--primary); }
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Study Destinations</h1>
+            <p>Explore world-class education opportunities across the globe</p>
+        </div>
+    </section>
+
+    <section style="padding: 60px 0; background: white;">
+        <div class="container">
+            <div class="section-title"><h2>Choose Your Destination</h2><p>We offer expert guidance to top study destinations worldwide</p></div>
+            <div class="dest-grid" id="destGrid">
+                <!-- India -->
+                <div class="dest-card-large" id="country-india">
+                    <div class="dest-img"><i class="fas fa-globe-asia"></i></div>
+                    <div class="dest-body">
+                        <h3>🇮🇳 India</h3>
+                        <div class="dest-features"><span>Affordable</span><span>Top Universities</span><span>Scholarships</span></div>
+                        <p>World-class education at affordable costs. Engineering, Medicine, Business, and more.</p>
+                        <a href="#" class="btn btn-primary apply-now-btn" data-dest="India">Apply Now</a>
+                    </div>
+                </div>
+                <!-- China -->
+                <div class="dest-card-large" id="country-china">
+                    <div class="dest-img"><i class="fas fa-globe-asia"></i></div>
+                    <div class="dest-body">
+                        <h3>🇨🇳 China</h3>
+                        <div class="dest-features"><span>Scholarships</span><span>Engineering</span><span>Medicine</span></div>
+                        <p>Study in world-class universities with generous scholarship opportunities.</p>
+                        <a href="#" class="btn btn-primary apply-now-btn" data-dest="China">Apply Now</a>
+                    </div>
+                </div>
+                <!-- Cyprus -->
+                <div class="dest-card-large" id="country-cyprus">
+                    <div class="dest-img"><i class="fas fa-globe-europe"></i></div>
+                    <div class="dest-body">
+                        <h3>🇨🇾 Cyprus</h3>
+                        <div class="dest-features"><span>EU Education</span><span>Affordable</span></div>
+                        <p>Quality European education with affordable tuition and a Mediterranean lifestyle.</p>
+                        <a href="#" class="btn btn-primary apply-now-btn" data-dest="Cyprus">Apply Now</a>
+                    </div>
+                </div>
+                <!-- Poland -->
+                <div class="dest-card-large" id="country-poland">
+                    <div class="dest-img"><i class="fas fa-globe-europe"></i></div>
+                    <div class="dest-body">
+                        <h3>🇵🇱 Poland</h3>
+                        <div class="dest-features"><span>EU Education</span><span>Low Cost</span></div>
+                        <p>High-quality European education with some of the lowest tuition fees in Europe.</p>
+                        <a href="#" class="btn btn-primary apply-now-btn" data-dest="Poland">Apply Now</a>
+                    </div>
+                </div>
+                <!-- Turkey -->
+                <div class="dest-card-large" id="country-turkey">
+                    <div class="dest-img"><i class="fas fa-globe-asia"></i></div>
+                    <div class="dest-body">
+                        <h3>🇹🇷 Turkey</h3>
+                        <div class="dest-features"><span>Affordable</span><span>Rich Culture</span></div>
+                        <p>Study in a vibrant country bridging Europe and Asia with quality education.</p>
+                        <a href="#" class="btn btn-primary apply-now-btn" data-dest="Turkey">Apply Now</a>
+                    </div>
+                </div>
+                <!-- Germany -->
+                <div class="dest-card-large" id="country-germany">
+                    <div class="dest-img"><i class="fas fa-globe-europe"></i></div>
+                    <div class="dest-body">
+                        <h3>🇩🇪 Germany</h3>
+                        <div class="dest-features"><span>Free Tuition</span><span>Engineering Hub</span></div>
+                        <p>World-renowned engineering and technology programs with low to no tuition fees.</p>
+                        <a href="#" class="btn btn-primary apply-now-btn" data-dest="Germany">Apply Now</a>
+                    </div>
+                </div>
+                <!-- Georgia -->
+                <div class="dest-card-large" id="country-georgia">
+                    <div class="dest-img"><i class="fas fa-globe-asia"></i></div>
+                    <div class="dest-body">
+                        <h3>🇬🇪 Georgia</h3>
+                        <div class="dest-features"><span>Affordable</span><span>Medical Programs</span></div>
+                        <p>Growing destination for medical studies with affordable fees and quality education.</p>
+                        <a href="#" class="btn btn-primary apply-now-btn" data-dest="Georgia">Apply Now</a>
+                    </div>
+                </div>
+                <!-- USA -->
+                <div class="dest-card-large" id="country-usa">
+                    <div class="dest-img"><i class="fas fa-globe-americas"></i></div>
+                    <div class="dest-body">
+                        <h3>🇺🇸 USA</h3>
+                        <div class="dest-features"><span>Top Universities</span><span>All Programs</span></div>
+                        <p>World's leading universities with diverse programs and global career opportunities.</p>
+                        <a href="#" class="btn btn-primary apply-now-btn" data-dest="USA">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 60px 0; background: var(--light);">
+        <div class="container" style="text-align:center;">
+            <h2 style="color:var(--primary); font-size:1.8rem;">Not sure which country is right for you?</h2>
+            <p style="color:#555; max-width:600px; margin:15px auto 25px;">We'll help you find the perfect destination based on your budget, program, and goals.</p>
+            <a href="#" class="btn btn-secondary consultation-btn">Book Free Consultation</a>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <div id="modals-placeholder"></div>
+
+    <script src="js/header-footer.js"></script>
+    <script src="js/modals.js"></script>
+    <script>
+        document.querySelectorAll('.apply-now-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const dest = this.getAttribute('data-dest');
+                if (dest) sessionStorage.setItem('preselectedDestination', dest);
+                openApplicationModal();
+            });
+        });
+        // Scroll to hash on load
+        if (window.location.hash) {
+            setTimeout(() => {
+                const target = document.querySelector(window.location.hash);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        }
+    </script>
+</body>
+</html>
