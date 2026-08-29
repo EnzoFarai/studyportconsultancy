@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Scholar Port Consultancy – Your Dream, Our Mission</title>
+    <meta name="description" content="Study abroad with Scholar Port Consultancy. Apply now for scholarships up to 100%. Study in India, USA, Poland, China, Germany and more.">
+    <meta name="keywords" content="study abroad, scholarships, education consultancy, study in India, study in China, MBBS abroad">
+    <meta name="author" content="Scholar Port Consultancy">
+    <link rel="canonical" href="https://scholarportconsultancy.github.io/index.html">
+    <meta property="og:title" content="Scholar Port Consultancy – Your Dream, Our Mission">
+    <meta property="og:description" content="Apply now for 50% to 100% scholarships. Study abroad with expert guidance.">
+    <meta property="og:image" content="https://scholarportconsultancy.github.io/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://scholarportconsultancy.github.io/index.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Homepage specific styles */
+        .hero {
+            background: linear-gradient(135deg, #1A2A33 0%, #21566E 50%, #1A2A33 100%);
+            color: white;
+            text-align: center;
+            padding: 160px 0 100px;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212,165,116,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero .container { position: relative; z-index: 1; }
+        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .hero h1 span { color: var(--secondary); }
+        .hero p { font-size: 1.2rem; max-width: 650px; margin: 0 auto 30px; opacity: 0.9; }
+        .hero-badges { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; }
+        .hero-badge { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 8px 20px; border-radius: 40px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); }
+        .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+
+        /* Destination Cards - smaller, modern */
+        .destinations-grid-home {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .dest-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid #f0ebe5;
+        }
+        .dest-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(33,86,110,0.12);
+            border-color: var(--secondary);
+        }
+        .dest-card i { font-size: 1.8rem; color: var(--primary); margin-bottom: 8px; display: block; }
+        .dest-card h4 { font-size: 0.9rem; color: var(--dark); margin: 0; font-weight: 600; }
+
+        /* Quick Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--secondary); }
+        .stat-label { font-size: 0.85rem; color: var(--gray); margin-top: 4px; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .destinations-grid-home { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .destinations-grid-home { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badges">
+                <span class="hero-badge">🏆 50% – 100% Scholarships</span>
+                <span class="hero-badge">🌍 7+ Countries</span>
+                <span class="hero-badge">📚 All Programs</span>
+            </div>
+            <h1>Your Dream, <span>Our Mission</span></h1>
+            <p>Study abroad with expert guidance. Scholarships up to 100% available. A Level & O Level accepted.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary apply-now-btn">Apply Now</a>
+                <a href="#" class="btn btn-secondary consultation-btn">Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section style="padding: 30px 0; background: white; border-bottom: 1px solid #f0ebe5;">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item"><div class="stat-number">7+</div><div class="stat-label">Study Destinations</div></div>
+                <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Scholarships Available</div></div>
+                <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">University Partners</div></div>
+                <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Student Support</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Preview -->
+    <section style="padding: 60px 0; background: #f8f5f0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Study Destinations</h2>
+                <p>Choose from our top study destinations worldwide</p>
+            </div>
+            <div class="destinations-grid-home" id="destGrid">
+                <div class="dest-card" data-dest="India"><i class="fas fa-globe-asia"></i><h4>India</h4></div>
+                <div class="dest-card" data-dest="China"><i class="fas fa-globe-asia"></i><h4>China</h4></div>
+                <div class="dest-card" data-dest="Cyprus"><i class="fas fa-globe-europe"></i><h4>Cyprus</h4></div>
+                <div class="dest-card" data-dest="Poland"><i class="fas fa-globe-europe"></i><h4>Poland</h4></div>
+                <div class="dest-card" data-dest="Turkey"><i class="fas fa-globe-asia"></i><h4>Turkey</h4></div>
+                <div class="dest-card" data-dest="Germany"><i class="fas fa-globe-europe"></i><h4>Germany</h4></div>
+                <div class="dest-card" data-dest="Georgia"><i class="fas fa-globe-asia"></i><h4>Georgia</h4></div>
+                <div class="dest-card" data-dest="USA"><i class="fas fa-globe-americas"></i><h4>USA</h4></div>
+            </div>
+            <div style="text-align:center; margin-top:25px;">
+                <a href="destinations.html" class="btn btn-outline">View All →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section style="padding: 70px 0; background: white;">
+        <div class="container">
+            <div class="overview-content" style="display:flex; align-items:center; gap:50px; flex-wrap:wrap;">
+                <div style="flex:1;">
+                    <h2 style="font-size:2rem; color:var(--primary); margin-bottom:20px;">Welcome to Scholar Port Consultancy</h2>
+                    <p style="color:#555; margin-bottom:15px; line-height:1.7;">Your trusted partner for international education and career guidance. We help students achieve their dreams of studying abroad with personalized support.</p>
+                    <p style="color:#555; margin-bottom:20px; line-height:1.7;">From university selection to visa processing and airport pickup, we handle everything so you can focus on your future.</p>
+                    <a href="about.html" class="btn btn-primary">Learn More</a>
+                </div>
+                <div style="flex:1; background: #f8f5f0; border-radius:16px; padding:40px; text-align:center;">
+                    <i class="fas fa-graduation-cap" style="font-size:4rem; color:var(--secondary);"></i>
+                    <h3 style="margin:15px 0 5px; color:var(--primary);">Your Dream, Our Mission</h3>
+                    <p style="color:var(--gray);">50% to 100% Scholarships Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Preview -->
+    <section style="padding: 60px 0; background: #f8f5f0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Programs Offered</h2>
+                <p>Find your perfect program with us</p>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:15px; text-align:center;">
+                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-certificate" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Diplomas</p></div>
+                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-user-graduate" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Degrees</p></div>
+                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-microscope" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Masters</p></div>
+                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-heartbeat" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">MBBS</p></div>
+                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-pills" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Pharmacy</p></div>
+                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-microchip" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Engineering</p></div>
+                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-chart-line" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">MBA</p></div>
+                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-user-md" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Medicine</p></div>
+                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-hand-holding-heart" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Nursing</p></div>
+            </div>
+            <div style="text-align:center; margin-top:25px;">
+                <a href="programs.html" class="btn btn-outline">View All Programs →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section style="padding: 60px 0; background: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Scholar Port?</h2>
+                <p>We make your study abroad journey smooth and successful</p>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:25px;">
+                <div style="background:#f8f5f0; padding:30px 25px; border-radius:12px; text-align:center; border-top:3px solid var(--secondary);">
+                    <i class="fas fa-hand-holding-usd" style="font-size:2rem; color:var(--secondary);"></i>
+                    <h4 style="margin:12px 0 5px; color:var(--primary);">Affordable Fees</h4>
+                    <p style="color:var(--gray); font-size:0.9rem;">Quality education at competitive costs</p>
+                </div>
+                <div style="background:#f8f5f0; padding:30px 25px; border-radius:12px; text-align:center; border-top:3px solid var(--secondary);">
+                    <i class="fas fa-award" style="font-size:2rem; color:var(--secondary);"></i>
+                    <h4 style="margin:12px 0 5px; color:var(--primary);">Scholarships</h4>
+                    <p style="color:var(--gray); font-size:0.9rem;">50% to 100% scholarship opportunities</p>
+                </div>
+                <div style="background:#f8f5f0; padding:30px 25px; border-radius:12px; text-align:center; border-top:3px solid var(--secondary);">
+                    <i class="fas fa-passport" style="font-size:2rem; color:var(--secondary);"></i>
+                    <h4 style="margin:12px 0 5px; color:var(--primary);">Visa Applications</h4>
+                    <p style="color:var(--gray); font-size:0.9rem;">Expert visa guidance and support</p>
+                </div>
+                <div style="background:#f8f5f0; padding:30px 25px; border-radius:12px; text-align:center; border-top:3px solid var(--secondary);">
+                    <i class="fas fa-plane-arrival" style="font-size:2rem; color:var(--secondary);"></i>
+                    <h4 style="margin:12px 0 5px; color:var(--primary);">Airport Pickups</h4>
+                    <p style="color:var(--gray); font-size:0.9rem;">Welcome support upon arrival</p>
+                </div>
+                <div style="background:#f8f5f0; padding:30px 25px; border-radius:12px; text-align:center; border-top:3px solid var(--secondary);">
+                    <i class="fas fa-university" style="font-size:2rem; color:var(--secondary);"></i>
+                    <h4 style="margin:12px 0 5px; color:var(--primary);">University Choice</h4>
+                    <p style="color:var(--gray); font-size:0.9rem;">Multiple universities of your choice</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding: 70px 0; background: linear-gradient(135deg, #1A2A33, #21566E); color:white; text-align:center;">
+        <div class="container">
+            <h2 style="font-size:2.2rem; margin-bottom:15px;">Ready to Start Your Global Education Journey?</h2>
+            <p style="max-width:600px; margin:0 auto 25px; opacity:0.9;">Applications underway – apply today and receive your scholarship!</p>
+            <a href="#" class="btn btn-secondary" style="background:var(--secondary); border-color:var(--secondary); color:#1A2A33;">Apply Now</a>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <div id="modals-placeholder"></div>
+
+    <script src="js/header-footer.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Destination cards redirect
+        document.querySelectorAll('.dest-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const dest = card.getAttribute('data-dest');
+                if (dest) window.location.href = `destinations.html#country-${dest.toLowerCase()}`;
+            });
+        });
+    </script>
+</body>
+</html>
