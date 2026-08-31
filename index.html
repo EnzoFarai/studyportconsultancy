@@ -24,7 +24,7 @@
             background: linear-gradient(135deg, #1A2A33 0%, #21566E 50%, #1A2A33 100%);
             color: white;
             text-align: center;
-            padding: 160px 0 100px;
+            padding: 150px 0 80px;
             margin-top: 70px;
             position: relative;
             overflow: hidden;
@@ -43,52 +43,226 @@
         .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; }
         .hero h1 span { color: var(--secondary); }
         .hero p { font-size: 1.2rem; max-width: 650px; margin: 0 auto 30px; opacity: 0.9; }
-        .hero-badges { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; }
-        .hero-badge { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 8px 20px; border-radius: 40px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); }
         .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
 
-        /* Destination Cards - smaller, modern */
-        .destinations-grid-home {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-        }
-        .dest-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px 15px;
-            text-align: center;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 1px solid #f0ebe5;
-        }
-        .dest-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(33,86,110,0.12);
-            border-color: var(--secondary);
-        }
-        .dest-card i { font-size: 1.8rem; color: var(--primary); margin-bottom: 8px; display: block; }
-        .dest-card h4 { font-size: 0.9rem; color: var(--dark); margin: 0; font-weight: 600; }
-
-        /* Quick Stats */
+        /* Stats */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            margin-top: 40px;
+            padding: 40px 0;
+            background: white;
+            border-bottom: 1px solid #f0ebe5;
         }
         .stat-item { text-align: center; }
         .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--secondary); }
         .stat-label { font-size: 0.85rem; color: var(--gray); margin-top: 4px; }
+
+        /* Circular Destinations Scroll */
+        .destinations-scroll-section {
+            padding: 60px 0;
+            background: var(--light);
+        }
+        .scroll-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+        .scroll-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 28px 16px;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            width: 100%;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            align-items: center;
+            gap: 28px;
+        }
+        .scroll-track::-webkit-scrollbar { display: none; }
+        .dest-circle {
+            flex: 0 0 auto;
+            text-align: center;
+            user-select: none;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(.34, 1.56, .64, 1);
+        }
+        .dest-circle:hover { transform: translateY(-4px); }
+        .dest-circle .circle-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 12px;
+            background: #e8ecf0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            border: 2px solid #e9edf2;
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+        .dest-circle:hover .circle-img {
+            box-shadow: 0 6px 24px rgba(33,86,110,0.15);
+            border-color: var(--secondary);
+        }
+        .dest-circle .circle-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .dest-circle .circle-name {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e293b;
+            transition: color 0.2s;
+        }
+        .dest-circle:hover .circle-name { color: var(--primary); }
+        .scroll-btn {
+            background: #ffffff;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            z-index: 5;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(33,86,110,0.12);
+            transition: all 0.2s;
+            color: var(--primary);
+            user-select: none;
+            line-height: 1;
+            font-weight: 300;
+            padding: 0;
+        }
+        .scroll-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 8px 28px rgba(33,86,110,0.25);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .scroll-btn:active { transform: translateY(-50%) scale(0.92); }
+        .scroll-btn.left { left: 0; }
+        .scroll-btn.right { right: 0; }
+
+        /* Welcome Section */
+        .welcome-section {
+            padding: 70px 0;
+            background: white;
+        }
+        .welcome-grid {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .welcome-text { flex: 1; }
+        .welcome-text h2 { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
+        .welcome-text p { color: #555; margin-bottom: 15px; line-height: 1.7; }
+        .welcome-card { flex: 1; background: var(--light); border-radius: 16px; padding: 40px; text-align: center; }
+        .welcome-card i { font-size: 4rem; color: var(--secondary); }
+        .welcome-card h3 { margin: 15px 0 5px; color: var(--primary); }
+        .welcome-card p { color: var(--gray); }
+
+        /* Programs Categorized */
+        .programs-section {
+            padding: 60px 0;
+            background: var(--light);
+        }
+        .programs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .program-category h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 8px;
+        }
+        .program-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .program-tag {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid #e5e0d9;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--dark);
+            transition: all 0.2s;
+            cursor: default;
+        }
+        .program-tag:hover {
+            border-color: var(--secondary);
+            background: var(--light);
+        }
+        .program-tag i { color: var(--secondary); margin-right: 6px; }
+
+        /* Why Choose */
+        .why-section {
+            padding: 60px 0;
+            background: white;
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .why-card {
+            background: var(--light);
+            padding: 30px 25px;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 3px solid var(--secondary);
+            transition: var(--transition);
+        }
+        .why-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.04); }
+        .why-card i { font-size: 2rem; color: var(--secondary); }
+        .why-card h4 { margin: 12px 0 5px; color: var(--primary); }
+        .why-card p { color: var(--gray); font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .programs-grid { grid-template-columns: 1fr; }
+        }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .destinations-grid-home { grid-template-columns: repeat(3, 1fr); }
+            .scroll-container { padding: 0 20px; }
+            .dest-circle .circle-img { width: 90px; height: 90px; }
+            .dest-circle .circle-name { font-size: 14px; }
+            .scroll-btn { width: 38px; height: 38px; font-size: 20px; }
+            .scroll-track { gap: 22px; padding: 20px 12px; }
+            .welcome-grid { flex-direction: column; }
         }
         @media (max-width: 480px) {
-            .destinations-grid-home { grid-template-columns: repeat(2, 1fr); }
+            .scroll-container { padding: 0 12px; }
+            .dest-circle .circle-img { width: 72px; height: 72px; }
+            .dest-circle .circle-name { font-size: 12px; }
+            .scroll-btn { width: 32px; height: 32px; font-size: 16px; }
+            .scroll-track { gap: 16px; padding: 16px 10px; border-radius: 20px; }
+            .hero h1 { font-size: 1.6rem; }
+            .welcome-card { padding: 25px; }
         }
     </style>
 </head>
@@ -98,11 +272,6 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badges">
-                <span class="hero-badge">🏆 50% – 100% Scholarships</span>
-                <span class="hero-badge">🌍 7+ Countries</span>
-                <span class="hero-badge">📚 All Programs</span>
-            </div>
             <h1>Your Dream, <span>Our Mission</span></h1>
             <p>Study abroad with expert guidance. Scholarships up to 100% available. A Level & O Level accepted.</p>
             <div class="hero-buttons">
@@ -112,116 +281,147 @@
         </div>
     </section>
 
-    <!-- Quick Stats -->
-    <section style="padding: 30px 0; background: white; border-bottom: 1px solid #f0ebe5;">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item"><div class="stat-number">7+</div><div class="stat-label">Study Destinations</div></div>
-                <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Scholarships Available</div></div>
-                <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">University Partners</div></div>
-                <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Student Support</div></div>
-            </div>
-        </div>
-    </section>
+    <!-- Stats -->
+    <div class="stats-grid container">
+        <div class="stat-item"><div class="stat-number">7+</div><div class="stat-label">Study Destinations</div></div>
+        <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Scholarships Available</div></div>
+        <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">University Partners</div></div>
+        <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Student Support</div></div>
+    </div>
 
-    <!-- Destinations Preview -->
-    <section style="padding: 60px 0; background: #f8f5f0;">
+    <!-- Study Destinations – Circular Scroll -->
+    <section class="destinations-scroll-section">
         <div class="container">
             <div class="section-title">
                 <h2>Study Destinations</h2>
                 <p>Choose from our top study destinations worldwide</p>
             </div>
-            <div class="destinations-grid-home" id="destGrid">
-                <div class="dest-card" data-dest="India"><i class="fas fa-globe-asia"></i><h4>India</h4></div>
-                <div class="dest-card" data-dest="China"><i class="fas fa-globe-asia"></i><h4>China</h4></div>
-                <div class="dest-card" data-dest="Cyprus"><i class="fas fa-globe-europe"></i><h4>Cyprus</h4></div>
-                <div class="dest-card" data-dest="Poland"><i class="fas fa-globe-europe"></i><h4>Poland</h4></div>
-                <div class="dest-card" data-dest="Turkey"><i class="fas fa-globe-asia"></i><h4>Turkey</h4></div>
-                <div class="dest-card" data-dest="Germany"><i class="fas fa-globe-europe"></i><h4>Germany</h4></div>
-                <div class="dest-card" data-dest="Georgia"><i class="fas fa-globe-asia"></i><h4>Georgia</h4></div>
-                <div class="dest-card" data-dest="USA"><i class="fas fa-globe-americas"></i><h4>USA</h4></div>
-            </div>
-            <div style="text-align:center; margin-top:25px;">
-                <a href="destinations.html" class="btn btn-outline">View All →</a>
+            <div class="scroll-container">
+                <button class="scroll-btn left" id="scrollLeftBtn" aria-label="Scroll left">‹</button>
+                <div class="scroll-track" id="destinationScroll">
+                    <div class="dest-circle" data-dest="india">
+                        <div class="circle-img"><img src="assets/images/destinations/india.jpg" alt="India" loading="lazy"></div>
+                        <div class="circle-name">India</div>
+                    </div>
+                    <div class="dest-circle" data-dest="china">
+                        <div class="circle-img"><img src="assets/images/destinations/china.jpg" alt="China" loading="lazy"></div>
+                        <div class="circle-name">China</div>
+                    </div>
+                    <div class="dest-circle" data-dest="poland">
+                        <div class="circle-img"><img src="assets/images/destinations/poland.jpg" alt="Poland" loading="lazy"></div>
+                        <div class="circle-name">Poland</div>
+                    </div>
+                    <div class="dest-circle" data-dest="cyprus">
+                        <div class="circle-img"><img src="assets/images/destinations/cyprus.jpg" alt="Cyprus" loading="lazy"></div>
+                        <div class="circle-name">Cyprus</div>
+                    </div>
+                    <div class="dest-circle" data-dest="turkey">
+                        <div class="circle-img"><img src="assets/images/destinations/turkey.jpg" alt="Turkey" loading="lazy"></div>
+                        <div class="circle-name">Turkey</div>
+                    </div>
+                    <div class="dest-circle" data-dest="germany">
+                        <div class="circle-img"><img src="assets/images/destinations/germany.jpg" alt="Germany" loading="lazy"></div>
+                        <div class="circle-name">Germany</div>
+                    </div>
+                    <div class="dest-circle" data-dest="georgia">
+                        <div class="circle-img"><img src="assets/images/destinations/georgia.jpg" alt="Georgia" loading="lazy"></div>
+                        <div class="circle-name">Georgia</div>
+                    </div>
+                    <div class="dest-circle" data-dest="usa">
+                        <div class="circle-img"><img src="assets/images/destinations/usa.jpg" alt="USA" loading="lazy"></div>
+                        <div class="circle-name">USA</div>
+                    </div>
+                    <div class="dest-circle" data-dest="somewhere-else">
+                        <div class="circle-img"><img src="assets/images/destinations/somewhere-else.jpg" alt="Somewhere Else" loading="lazy"></div>
+                        <div class="circle-name">Somewhere Else</div>
+                    </div>
+                </div>
+                <button class="scroll-btn right" id="scrollRightBtn" aria-label="Scroll right">›</button>
             </div>
         </div>
     </section>
 
     <!-- Welcome Section -->
-    <section style="padding: 70px 0; background: white;">
+    <section class="welcome-section">
         <div class="container">
-            <div class="overview-content" style="display:flex; align-items:center; gap:50px; flex-wrap:wrap;">
-                <div style="flex:1;">
-                    <h2 style="font-size:2rem; color:var(--primary); margin-bottom:20px;">Welcome to Scholar Port Consultancy</h2>
-                    <p style="color:#555; margin-bottom:15px; line-height:1.7;">Your trusted partner for international education and career guidance. We help students achieve their dreams of studying abroad with personalized support.</p>
-                    <p style="color:#555; margin-bottom:20px; line-height:1.7;">From university selection to visa processing and airport pickup, we handle everything so you can focus on your future.</p>
+            <div class="welcome-grid">
+                <div class="welcome-text">
+                    <h2>Welcome to Scholar Port Consultancy</h2>
+                    <p>Your trusted partner for international education and career guidance. We help students achieve their dreams of studying abroad with personalized support.</p>
+                    <p>From university selection to visa processing and airport pickup, we handle everything so you can focus on your future.</p>
                     <a href="about.html" class="btn btn-primary">Learn More</a>
                 </div>
-                <div style="flex:1; background: #f8f5f0; border-radius:16px; padding:40px; text-align:center;">
-                    <i class="fas fa-graduation-cap" style="font-size:4rem; color:var(--secondary);"></i>
-                    <h3 style="margin:15px 0 5px; color:var(--primary);">Your Dream, Our Mission</h3>
-                    <p style="color:var(--gray);">50% to 100% Scholarships Available</p>
+                <div class="welcome-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Your Dream, Our Mission</h3>
+                    <p>50% to 100% Scholarships Available</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Programs Preview -->
-    <section style="padding: 60px 0; background: #f8f5f0;">
+    <!-- Programs Offered (categorized) -->
+    <section class="programs-section">
         <div class="container">
             <div class="section-title">
                 <h2>Programs Offered</h2>
-                <p>Find your perfect program with us</p>
+                <p>Find the right program for your future</p>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:15px; text-align:center;">
-                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-certificate" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Diplomas</p></div>
-                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-user-graduate" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Degrees</p></div>
-                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-microscope" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Masters</p></div>
-                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-heartbeat" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">MBBS</p></div>
-                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-pills" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Pharmacy</p></div>
-                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-microchip" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Engineering</p></div>
-                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-chart-line" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">MBA</p></div>
-                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-user-md" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Medicine</p></div>
-                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04);"><i class="fas fa-hand-holding-heart" style="color:var(--secondary);font-size:1.5rem;"></i><p style="margin-top:8px;font-weight:600;">Nursing</p></div>
-            </div>
-            <div style="text-align:center; margin-top:25px;">
-                <a href="programs.html" class="btn btn-outline">View All Programs →</a>
+            <div class="programs-grid">
+                <div class="program-category">
+                    <h3>Study Levels</h3>
+                    <div class="program-tags">
+                        <span class="program-tag"><i class="fas fa-certificate"></i> Diplomas</span>
+                        <span class="program-tag"><i class="fas fa-user-graduate"></i> Degrees</span>
+                        <span class="program-tag"><i class="fas fa-microscope"></i> Master's</span>
+                    </div>
+                </div>
+                <div class="program-category">
+                    <h3>Popular Fields</h3>
+                    <div class="program-tags">
+                        <span class="program-tag"><i class="fas fa-heartbeat"></i> Medicine &amp; MBBS</span>
+                        <span class="program-tag"><i class="fas fa-pills"></i> Pharmacy</span>
+                        <span class="program-tag"><i class="fas fa-hand-holding-heart"></i> Nursing</span>
+                        <span class="program-tag"><i class="fas fa-microchip"></i> Engineering</span>
+                        <span class="program-tag"><i class="fas fa-chart-line"></i> Business &amp; MBA</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us -->
-    <section style="padding: 60px 0; background: white;">
+    <section class="why-section">
         <div class="container">
             <div class="section-title">
                 <h2>Why Choose Scholar Port?</h2>
                 <p>We make your study abroad journey smooth and successful</p>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:25px;">
-                <div style="background:#f8f5f0; padding:30px 25px; border-radius:12px; text-align:center; border-top:3px solid var(--secondary);">
-                    <i class="fas fa-hand-holding-usd" style="font-size:2rem; color:var(--secondary);"></i>
-                    <h4 style="margin:12px 0 5px; color:var(--primary);">Affordable Fees</h4>
-                    <p style="color:var(--gray); font-size:0.9rem;">Quality education at competitive costs</p>
+            <div class="why-grid">
+                <div class="why-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h4>Affordable Fees</h4>
+                    <p>Quality education at competitive costs</p>
                 </div>
-                <div style="background:#f8f5f0; padding:30px 25px; border-radius:12px; text-align:center; border-top:3px solid var(--secondary);">
-                    <i class="fas fa-award" style="font-size:2rem; color:var(--secondary);"></i>
-                    <h4 style="margin:12px 0 5px; color:var(--primary);">Scholarships</h4>
-                    <p style="color:var(--gray); font-size:0.9rem;">50% to 100% scholarship opportunities</p>
+                <div class="why-card">
+                    <i class="fas fa-award"></i>
+                    <h4>Scholarships</h4>
+                    <p>50% to 100% scholarship opportunities</p>
                 </div>
-                <div style="background:#f8f5f0; padding:30px 25px; border-radius:12px; text-align:center; border-top:3px solid var(--secondary);">
-                    <i class="fas fa-passport" style="font-size:2rem; color:var(--secondary);"></i>
-                    <h4 style="margin:12px 0 5px; color:var(--primary);">Visa Applications</h4>
-                    <p style="color:var(--gray); font-size:0.9rem;">Expert visa guidance and support</p>
+                <div class="why-card">
+                    <i class="fas fa-passport"></i>
+                    <h4>Visa Applications</h4>
+                    <p>Expert visa guidance and support</p>
                 </div>
-                <div style="background:#f8f5f0; padding:30px 25px; border-radius:12px; text-align:center; border-top:3px solid var(--secondary);">
-                    <i class="fas fa-plane-arrival" style="font-size:2rem; color:var(--secondary);"></i>
-                    <h4 style="margin:12px 0 5px; color:var(--primary);">Airport Pickups</h4>
-                    <p style="color:var(--gray); font-size:0.9rem;">Welcome support upon arrival</p>
+                <div class="why-card">
+                    <i class="fas fa-plane-arrival"></i>
+                    <h4>Airport Pickups</h4>
+                    <p>Welcome support upon arrival</p>
                 </div>
-                <div style="background:#f8f5f0; padding:30px 25px; border-radius:12px; text-align:center; border-top:3px solid var(--secondary);">
-                    <i class="fas fa-university" style="font-size:2rem; color:var(--secondary);"></i>
-                    <h4 style="margin:12px 0 5px; color:var(--primary);">University Choice</h4>
-                    <p style="color:var(--gray); font-size:0.9rem;">Multiple universities of your choice</p>
+                <div class="why-card">
+                    <i class="fas fa-university"></i>
+                    <h4>University Choice</h4>
+                    <p>Multiple universities of your choice</p>
                 </div>
             </div>
         </div>
@@ -232,24 +432,128 @@
         <div class="container">
             <h2 style="font-size:2.2rem; margin-bottom:15px;">Ready to Start Your Global Education Journey?</h2>
             <p style="max-width:600px; margin:0 auto 25px; opacity:0.9;">Applications underway – apply today and receive your scholarship!</p>
-            <a href="#" class="btn btn-secondary" style="background:var(--secondary); border-color:var(--secondary); color:#1A2A33;">Apply Now</a>
+            <a href="#" class="btn btn-secondary apply-now-btn" style="background:var(--secondary); border-color:var(--secondary); color:#1A2A33;">Apply Now</a>
         </div>
     </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/917696286326" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <div id="footer-placeholder"></div>
     <div id="modals-placeholder"></div>
 
     <script src="js/header-footer.js"></script>
     <script src="js/modals.js"></script>
-    <script src="js/main.js"></script>
     <script>
-        // Destination cards redirect
-        document.querySelectorAll('.dest-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const dest = card.getAttribute('data-dest');
-                if (dest) window.location.href = `destinations.html#country-${dest.toLowerCase()}`;
+        // ============================
+        // CIRCULAR DESTINATIONS SCROLL
+        // ============================
+        (function() {
+            const container = document.getElementById('destinationScroll');
+            const leftBtn = document.getElementById('scrollLeftBtn');
+            const rightBtn = document.getElementById('scrollRightBtn');
+            if (!container) return;
+
+            const SCROLL_SPEED = 4;
+            const INTERVAL_MS = 28;
+            const PAUSE_DURATION = 4000;
+
+            let scrollDirection = 'right';
+            let intervalId = null;
+            let isPaused = false;
+            let resumeTimeout = null;
+            let isHovering = false;
+
+            function tick() {
+                if (isPaused) return;
+                const maxScroll = container.scrollWidth - container.clientWidth;
+                if (maxScroll <= 0) return;
+                if (scrollDirection === 'right') {
+                    container.scrollLeft += SCROLL_SPEED;
+                    if (container.scrollLeft >= maxScroll - 2) scrollDirection = 'left';
+                } else {
+                    container.scrollLeft -= SCROLL_SPEED;
+                    if (container.scrollLeft <= 2) scrollDirection = 'right';
+                }
+            }
+
+            function startAutoScroll() {
+                if (intervalId) clearInterval(intervalId);
+                intervalId = setInterval(tick, INTERVAL_MS);
+                isPaused = false;
+            }
+
+            function stopAutoScroll() {
+                if (intervalId) { clearInterval(intervalId); intervalId = null; }
+                isPaused = true;
+            }
+
+            function resumeAutoScroll() {
+                if (intervalId) return;
+                if (isHovering) return;
+                isPaused = false;
+                intervalId = setInterval(tick, INTERVAL_MS);
+            }
+
+            function pauseAndResumeLater() {
+                if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
+                stopAutoScroll();
+                resumeTimeout = setTimeout(() => {
+                    resumeTimeout = null;
+                    if (!isHovering) resumeAutoScroll();
+                }, PAUSE_DURATION);
+            }
+
+            function scrollBy(amount) {
+                pauseAndResumeLater();
+                container.scrollLeft += amount;
+            }
+
+            leftBtn.addEventListener('click', function(e) { e.stopPropagation(); scrollBy(-220); });
+            rightBtn.addEventListener('click', function(e) { e.stopPropagation(); scrollBy(220); });
+
+            container.addEventListener('mouseenter', function() {
+                isHovering = true;
+                stopAutoScroll();
+                if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
             });
-        });
+            container.addEventListener('mouseleave', function() {
+                isHovering = false;
+                if (!resumeTimeout && !intervalId) resumeAutoScroll();
+            });
+
+            let touchStartX = 0;
+            container.addEventListener('touchstart', function(e) {
+                touchStartX = e.touches[0].clientX;
+                stopAutoScroll();
+                if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
+            }, { passive: true });
+            container.addEventListener('touchend', function(e) {
+                if (!isHovering) pauseAndResumeLater();
+            }, { passive: true });
+
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    const maxScroll = container.scrollWidth - container.clientWidth;
+                    if (container.scrollLeft >= maxScroll - 2) scrollDirection = 'left';
+                    else if (container.scrollLeft <= 2) scrollDirection = 'right';
+                }, 200);
+            });
+
+            // Click on destination: redirect to destinations.html#country-{name}
+            document.querySelectorAll('.dest-circle').forEach(el => {
+                el.addEventListener('click', function() {
+                    const dest = this.getAttribute('data-dest');
+                    if (dest) window.location.href = `destinations.html#country-${dest}`;
+                });
+            });
+
+            startAutoScroll();
+        })();
     </script>
 </body>
 </html>
