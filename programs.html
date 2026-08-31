@@ -20,25 +20,47 @@
         }
         .page-hero h1 { font-size: 2.8rem; font-weight: 800; }
         .page-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 10px auto 0; }
-        .program-grid {
+        .programs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             margin-top: 30px;
         }
-        .program-item {
-            background: white;
-            border-radius: 12px;
-            padding: 25px 20px;
-            text-align: center;
-            border: 1px solid #f0ebe5;
-            transition: var(--transition);
+        .program-category h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 8px;
         }
-        .program-item:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(33,86,110,0.08); }
-        .program-item i { font-size: 2rem; color: var(--secondary); margin-bottom: 10px; }
-        .program-item h4 { color: var(--primary); font-size: 1rem; }
+        .program-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .program-tag {
+            background: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            border: 1px solid #e5e0d9;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--dark);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .program-tag:hover {
+            border-color: var(--secondary);
+            background: var(--light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .program-tag i { color: var(--secondary); font-size: 1rem; }
         @media (max-width: 768px) {
             .page-hero h1 { font-size: 2rem; }
+            .programs-grid { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
 </head>
@@ -48,23 +70,32 @@
     <section class="page-hero">
         <div class="container">
             <h1>Programs Offered</h1>
-            <p>Find your perfect academic program</p>
+            <p>Find the right program for your future</p>
         </div>
     </section>
 
     <section style="padding: 60px 0; background: white;">
         <div class="container">
-            <div class="section-title"><h2>Choose Your Program</h2><p>We offer a wide range of programs across multiple disciplines</p></div>
-            <div class="program-grid">
-                <div class="program-item"><i class="fas fa-certificate"></i><h4>Diplomas</h4></div>
-                <div class="program-item"><i class="fas fa-user-graduate"></i><h4>Degrees</h4></div>
-                <div class="program-item"><i class="fas fa-microscope"></i><h4>Masters</h4></div>
-                <div class="program-item"><i class="fas fa-heartbeat"></i><h4>MBBS</h4></div>
-                <div class="program-item"><i class="fas fa-pills"></i><h4>Pharmacy</h4></div>
-                <div class="program-item"><i class="fas fa-microchip"></i><h4>Engineering</h4></div>
-                <div class="program-item"><i class="fas fa-chart-line"></i><h4>MBA</h4></div>
-                <div class="program-item"><i class="fas fa-user-md"></i><h4>Medicine</h4></div>
-                <div class="program-item"><i class="fas fa-hand-holding-heart"></i><h4>Nursing</h4></div>
+            <div class="section-title"><h2>Explore Our Programs</h2><p>We offer a wide range of programs across multiple disciplines</p></div>
+            <div class="programs-grid">
+                <div class="program-category">
+                    <h3><i class="fas fa-layer-group" style="color:var(--secondary); margin-right:8px;"></i> Study Levels</h3>
+                    <div class="program-tags">
+                        <span class="program-tag"><i class="fas fa-certificate"></i> Diplomas</span>
+                        <span class="program-tag"><i class="fas fa-user-graduate"></i> Degrees</span>
+                        <span class="program-tag"><i class="fas fa-microscope"></i> Master's</span>
+                    </div>
+                </div>
+                <div class="program-category">
+                    <h3><i class="fas fa-star" style="color:var(--secondary); margin-right:8px;"></i> Popular Fields</h3>
+                    <div class="program-tags">
+                        <span class="program-tag"><i class="fas fa-heartbeat"></i> Medicine &amp; MBBS</span>
+                        <span class="program-tag"><i class="fas fa-pills"></i> Pharmacy</span>
+                        <span class="program-tag"><i class="fas fa-hand-holding-heart"></i> Nursing</span>
+                        <span class="program-tag"><i class="fas fa-microchip"></i> Engineering</span>
+                        <span class="program-tag"><i class="fas fa-chart-line"></i> Business &amp; MBA</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -76,6 +107,11 @@
             <a href="#" class="btn btn-primary consultation-btn">Get Advice</a>
         </div>
     </section>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/917696286326" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <div id="footer-placeholder"></div>
     <div id="modals-placeholder"></div>
