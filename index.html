@@ -45,56 +45,46 @@
         .hero p { font-size: 1.2rem; max-width: 650px; margin: 0 auto 30px; opacity: 0.9; }
         .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
 
-        /* Circular Destinations Scroll – Infinite Loop */
-        .destinations-scroll-section {
+        /* Destinations Carousel – same as Milestone Global Education */
+        .destinations-carousel-section {
+            background-color: #f8f5f0;
             padding: 60px 0;
-            background: var(--light);
         }
-        .scroll-container {
+        .carousel-container {
             position: relative;
-            width: 100%;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 55px;
             overflow: hidden;
+            padding: 20px 0;
         }
-        .scroll-track-wrapper {
-            overflow: hidden;
-            border-radius: 32px;
-            background: #ffffff;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            padding: 28px 16px;
-        }
-        .scroll-track {
+        .carousel-track {
             display: flex;
-            gap: 32px;
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            gap: 25px;
+            transition: transform 0.5s cubic-bezier(0.2,0.9,0.4,1.1);
             will-change: transform;
-            width: max-content;
+            cursor: pointer;
         }
         .dest-circle {
-            flex: 0 0 auto;
+            flex: 0 0 180px;
             text-align: center;
             user-select: none;
             cursor: pointer;
-            transition: transform 0.25s cubic-bezier(.34, 1.56, .64, 1);
-            width: 130px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .dest-circle:hover { transform: translateY(-6px) scale(1.03); }
+        .dest-circle:hover {
+            transform: translateY(-6px);
+        }
         .dest-circle .circle-img {
-            width: 130px;
-            height: 130px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             overflow: hidden;
-            margin: 0 auto 14px;
+            margin: 0 auto 12px;
             background: #e8ecf0;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
             border: 3px solid #e9edf2;
             transition: box-shadow 0.3s, border-color 0.3s;
         }
         .dest-circle:hover .circle-img {
-            box-shadow: 0 6px 28px rgba(33,86,110,0.2);
+            box-shadow: 0 8px 30px rgba(33,86,110,0.15);
             border-color: var(--secondary);
         }
         .dest-circle .circle-img img {
@@ -104,46 +94,57 @@
             display: block;
         }
         .dest-circle .circle-name {
-            font-size: 18px;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #1e293b;
             transition: color 0.2s;
         }
         .dest-circle:hover .circle-name { color: var(--primary); }
 
-        .scroll-btn {
+        .carousel-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: #ffffff;
-            border: 2.5px solid var(--primary);
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            width: 56px;
-            height: 56px;
-            font-size: 28px;
             cursor: pointer;
-            z-index: 5;
+            z-index: 10;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 20px rgba(33,86,110,0.15);
-            transition: all 0.2s;
-            color: var(--primary);
-            user-select: none;
-            line-height: 1;
-            font-weight: 300;
-            padding: 0;
+            font-size: 1.3rem;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(33,86,110,0.2);
         }
-        .scroll-btn:hover {
+        .carousel-arrow:hover {
+            background: var(--secondary);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .carousel-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        .carousel-arrow-left { left: 10px; }
+        .carousel-arrow-right { right: 10px; }
+
+        .view-all-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
             background: var(--primary);
-            color: #ffffff;
-            border-color: var(--primary);
-            box-shadow: 0 8px 30px rgba(33,86,110,0.3);
-            transform: translateY(-50%) scale(1.08);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
         }
-        .scroll-btn:active { transform: translateY(-50%) scale(0.92); }
-        .scroll-btn.left { left: 0; }
-        .scroll-btn.right { right: 0; }
+        .view-all-link:hover {
+            background: transparent;
+            color: var(--primary);
+        }
 
         /* Welcome Section */
         .welcome-section {
@@ -228,45 +229,25 @@
         .why-card h4 { margin: 12px 0 5px; color: var(--primary); }
         .why-card p { color: var(--gray); font-size: 0.9rem; }
 
-        .view-all-link {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 30px;
-            background: var(--primary);
-            color: white;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: var(--transition);
-            border: 2px solid var(--primary);
-        }
-        .view-all-link:hover {
-            background: transparent;
-            color: var(--primary);
-        }
-
         /* Responsive */
         @media (max-width: 992px) {
             .programs-grid { grid-template-columns: 1fr; }
+            .dest-circle { flex: 0 0 150px; }
+            .dest-circle .circle-img { width: 150px; height: 150px; }
         }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            .scroll-container { padding: 0 20px; }
-            .dest-circle { width: 100px; }
-            .dest-circle .circle-img { width: 100px; height: 100px; }
-            .dest-circle .circle-name { font-size: 15px; }
-            .scroll-btn { width: 44px; height: 44px; font-size: 22px; }
-            .scroll-track { gap: 24px; }
-            .scroll-track-wrapper { padding: 20px 12px; }
+            .dest-circle { flex: 0 0 120px; }
+            .dest-circle .circle-img { width: 120px; height: 120px; }
+            .dest-circle .circle-name { font-size: 0.95rem; }
+            .carousel-arrow { width: 36px; height: 36px; font-size: 1rem; }
             .welcome-grid { flex-direction: column; }
         }
         @media (max-width: 480px) {
-            .scroll-container { padding: 0 12px; }
-            .dest-circle { width: 80px; }
-            .dest-circle .circle-img { width: 80px; height: 80px; }
-            .dest-circle .circle-name { font-size: 13px; }
-            .scroll-btn { width: 36px; height: 36px; font-size: 18px; }
-            .scroll-track { gap: 16px; }
-            .scroll-track-wrapper { padding: 16px 10px; border-radius: 20px; }
+            .dest-circle { flex: 0 0 100px; }
+            .dest-circle .circle-img { width: 100px; height: 100px; }
+            .dest-circle .circle-name { font-size: 0.85rem; }
+            .carousel-arrow { width: 32px; height: 32px; font-size: 0.8rem; }
             .hero h1 { font-size: 1.6rem; }
             .welcome-card { padding: 25px; }
         }
@@ -287,23 +268,65 @@
         </div>
     </section>
 
-    <!-- Study Destinations – Circular Scroll (Infinite Loop) -->
-    <section class="destinations-scroll-section">
+    <!-- Study Destinations Carousel – same logic as Milestone Global Education -->
+    <section class="destinations-carousel-section">
         <div class="container">
             <div class="section-title">
                 <h2>Study Destinations</h2>
                 <p>Choose from our top study destinations worldwide</p>
             </div>
-            <div class="scroll-container">
-                <button class="scroll-btn left" id="scrollLeftBtn" aria-label="Scroll left">‹</button>
-                <div class="scroll-track-wrapper">
-                    <div class="scroll-track" id="destinationScroll">
-                        <!-- Items will be generated by JavaScript -->
+            <div class="carousel-container">
+                <button class="carousel-arrow carousel-arrow-left" id="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-track" id="carousel-track">
+                    <!-- India -->
+                    <div class="dest-circle" data-dest="india">
+                        <div class="circle-img"><img src="assets/images/destinations/india.jpg" alt="India" loading="lazy"></div>
+                        <div class="circle-name">India</div>
+                    </div>
+                    <!-- China -->
+                    <div class="dest-circle" data-dest="china">
+                        <div class="circle-img"><img src="assets/images/destinations/china.jpg" alt="China" loading="lazy"></div>
+                        <div class="circle-name">China</div>
+                    </div>
+                    <!-- Poland -->
+                    <div class="dest-circle" data-dest="poland">
+                        <div class="circle-img"><img src="assets/images/destinations/poland.jpg" alt="Poland" loading="lazy"></div>
+                        <div class="circle-name">Poland</div>
+                    </div>
+                    <!-- Cyprus -->
+                    <div class="dest-circle" data-dest="cyprus">
+                        <div class="circle-img"><img src="assets/images/destinations/cyprus.jpg" alt="Cyprus" loading="lazy"></div>
+                        <div class="circle-name">Cyprus</div>
+                    </div>
+                    <!-- Turkey -->
+                    <div class="dest-circle" data-dest="turkey">
+                        <div class="circle-img"><img src="assets/images/destinations/turkey.jpg" alt="Turkey" loading="lazy"></div>
+                        <div class="circle-name">Turkey</div>
+                    </div>
+                    <!-- Germany -->
+                    <div class="dest-circle" data-dest="germany">
+                        <div class="circle-img"><img src="assets/images/destinations/germany.jpg" alt="Germany" loading="lazy"></div>
+                        <div class="circle-name">Germany</div>
+                    </div>
+                    <!-- Georgia -->
+                    <div class="dest-circle" data-dest="georgia">
+                        <div class="circle-img"><img src="assets/images/destinations/georgia.jpg" alt="Georgia" loading="lazy"></div>
+                        <div class="circle-name">Georgia</div>
+                    </div>
+                    <!-- USA -->
+                    <div class="dest-circle" data-dest="usa">
+                        <div class="circle-img"><img src="assets/images/destinations/usa.jpg" alt="USA" loading="lazy"></div>
+                        <div class="circle-name">USA</div>
+                    </div>
+                    <!-- Somewhere Else -->
+                    <div class="dest-circle" data-dest="somewhere-else">
+                        <div class="circle-img"><img src="assets/images/destinations/somewhere-else.jpg" alt="Somewhere Else" loading="lazy"></div>
+                        <div class="circle-name">Somewhere Else</div>
                     </div>
                 </div>
-                <button class="scroll-btn right" id="scrollRightBtn" aria-label="Scroll right">›</button>
+                <button class="carousel-arrow carousel-arrow-right" id="carousel-next"><i class="fas fa-chevron-right"></i></button>
             </div>
-            <div style="text-align:center; margin-top:25px;">
+            <div style="text-align:center; margin-top:10px;">
                 <a href="destinations.html" class="view-all-link">View All Destinations →</a>
             </div>
         </div>
@@ -328,7 +351,7 @@
         </div>
     </section>
 
-    <!-- Programs Offered (categorized) -->
+    <!-- Programs Offered -->
     <section class="programs-section">
         <div class="container">
             <div class="section-title">
@@ -416,223 +439,147 @@
     <script src="js/modals.js"></script>
     <script>
         // ============================
-        // INFINITE LOOP CAROUSEL
+        // CAROUSEL – Same as Milestone Global Education
         // ============================
         (function() {
-            const track = document.getElementById('destinationScroll');
-            const leftBtn = document.getElementById('scrollLeftBtn');
-            const rightBtn = document.getElementById('scrollRightBtn');
+            const track = document.getElementById('carousel-track');
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
             if (!track) return;
 
-            // Destination data
-            const destinations = [
-                { id: 'india', name: 'India', img: 'assets/images/destinations/india.jpg' },
-                { id: 'china', name: 'China', img: 'assets/images/destinations/china.jpg' },
-                { id: 'poland', name: 'Poland', img: 'assets/images/destinations/poland.jpg' },
-                { id: 'cyprus', name: 'Cyprus', img: 'assets/images/destinations/cyprus.jpg' },
-                { id: 'turkey', name: 'Turkey', img: 'assets/images/destinations/turkey.jpg' },
-                { id: 'germany', name: 'Germany', img: 'assets/images/destinations/germany.jpg' },
-                { id: 'georgia', name: 'Georgia', img: 'assets/images/destinations/georgia.jpg' },
-                { id: 'usa', name: 'USA', img: 'assets/images/destinations/usa.jpg' },
-                { id: 'somewhere-else', name: 'Somewhere Else', img: 'assets/images/destinations/somewhere-else.jpg' }
-            ];
-
-            // Build items
-            function buildItem(dest) {
-                const div = document.createElement('div');
-                div.className = 'dest-circle';
-                div.setAttribute('data-dest', dest.id);
-                div.innerHTML = `
-                    <div class="circle-img"><img src="${dest.img}" alt="${dest.name}" loading="lazy"></div>
-                    <div class="circle-name">${dest.name}</div>
-                `;
-                div.addEventListener('click', function() {
-                    window.location.href = `destinations.html#country-${this.getAttribute('data-dest')}`;
-                });
-                return div;
-            }
-
-            // Clone for infinite loop
-            const cloneCount = 2;
-            const itemsPerSet = destinations.length;
+            let cards = Array.from(track.children);
+            const cloneCount = 3;
             
-            // Build the full track: [clone2][clone1][original][clone1][clone2]
-            for (let c = 0; c < cloneCount; c++) {
-                destinations.forEach(d => track.appendChild(buildItem(d)));
+            // Clone for infinite effect
+            for (let i = 0; i < cloneCount; i++) {
+                const firstClone = cards[i].cloneNode(true);
+                const lastClone = cards[cards.length - 1 - i].cloneNode(true);
+                track.appendChild(firstClone);
+                track.insertBefore(lastClone, track.firstChild);
             }
-            // Original set
-            destinations.forEach(d => track.appendChild(buildItem(d)));
-            // Clones after
-            for (let c = 0; c < cloneCount; c++) {
-                destinations.forEach(d => track.appendChild(buildItem(d)));
-            }
-
-            const allItems = track.children;
-            const totalItems = allItems.length;
-            const startIndex = cloneCount * itemsPerSet;
-
-            let currentIndex = startIndex;
-            let itemWidth = 0;
-            const gap = 32;
+            cards = Array.from(track.children);
+            
+            let currentIndex = cloneCount;
+            let cardWidth = 0;
+            const gap = 25;
             let isTransitioning = false;
             let autoInterval;
-            let isPaused = false;
-            let resumeTimeout = null;
+            let autoScrollDelayTimeout;
 
-            function updateItemWidth() {
-                const firstItem = track.querySelector('.dest-circle');
-                if (firstItem) itemWidth = firstItem.offsetWidth + gap;
+            function updateCardWidth() {
+                if (cards.length) cardWidth = cards[0].offsetWidth + gap;
             }
 
             function setTransform(animate = true) {
                 if (!animate) track.style.transition = 'none';
-                track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
                 if (!animate) {
                     track.offsetHeight;
                     track.style.transition = '';
                 }
             }
 
-            function moveToIndex(newIndex, animate = true) {
-                if (isTransitioning && animate) return;
-                isTransitioning = true;
-                currentIndex = newIndex;
-                setTransform(animate);
+            function refresh() {
+                if (isTransitioning) return;
+                const old = cardWidth;
+                updateCardWidth();
+                if (old !== cardWidth && cardWidth > 0) {
+                    const visual = currentIndex * old;
+                    currentIndex = Math.round(visual / cardWidth);
+                    setTransform(false);
+                } else {
+                    setTransform(false);
+                }
             }
 
             function moveNext() {
-                if (isPaused || isTransitioning) return;
-                moveToIndex(currentIndex + 1, true);
+                if (isTransitioning) return;
+                isTransitioning = true;
+                currentIndex++;
+                setTransform(true);
             }
 
             function movePrev() {
-                if (isPaused || isTransitioning) return;
-                moveToIndex(currentIndex - 1, true);
+                if (isTransitioning) return;
+                isTransitioning = true;
+                currentIndex--;
+                setTransform(true);
             }
 
             function onTransitionEnd() {
                 isTransitioning = false;
-                const totalSets = cloneCount * 2 + 1;
-                const endThreshold = itemsPerSet * totalSets - cloneCount;
-                const startThreshold = cloneCount * itemsPerSet;
-                
-                if (currentIndex >= endThreshold) {
-                    // Jump back to the corresponding position in the original set
-                    const offset = currentIndex - endThreshold;
-                    const newIndex = startThreshold + offset;
-                    moveToIndex(newIndex, false);
-                } else if (currentIndex < startThreshold) {
-                    // Jump forward to the corresponding position in the original set
-                    const offset = startThreshold - currentIndex;
-                    const newIndex = itemsPerSet * totalSets - cloneCount - offset;
-                    moveToIndex(newIndex, false);
+                if (currentIndex >= cards.length - cloneCount) {
+                    track.style.transition = 'none';
+                    currentIndex = cloneCount;
+                    setTransform(false);
+                    track.offsetHeight;
+                    track.style.transition = '';
+                } else if (currentIndex < cloneCount) {
+                    track.style.transition = 'none';
+                    currentIndex = cards.length - cloneCount - 1;
+                    setTransform(false);
+                    track.offsetHeight;
+                    track.style.transition = '';
                 }
             }
 
             track.addEventListener('transitionend', onTransitionEnd);
 
-            function startAutoScroll() {
-                if (autoInterval) clearInterval(autoInterval);
-                autoInterval = setInterval(() => moveNext(), 4000);
-                isPaused = false;
-            }
-
             function stopAutoScroll() {
                 if (autoInterval) clearInterval(autoInterval);
-                if (resumeTimeout) clearTimeout(resumeTimeout);
-                isPaused = true;
+                if (autoScrollDelayTimeout) clearTimeout(autoScrollDelayTimeout);
             }
 
-            function resumeAutoScrollDelayed() {
-                if (resumeTimeout) clearTimeout(resumeTimeout);
-                resumeTimeout = setTimeout(() => {
-                    isPaused = false;
-                    startAutoScroll();
-                }, 4000);
+            function startAutoScroll() {
+                if (autoInterval) clearInterval(autoInterval);
+                autoInterval = setInterval(() => moveNext(), 5000);
+            }
+
+            function restartAutoScrollDelayed() {
+                if (autoScrollDelayTimeout) clearTimeout(autoScrollDelayTimeout);
+                autoScrollDelayTimeout = setTimeout(() => startAutoScroll(), 4000);
             }
 
             // Arrow buttons
-            rightBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
+            nextBtn.addEventListener('click', function() {
                 stopAutoScroll();
                 moveNext();
-                resumeAutoScrollDelayed();
+                restartAutoScrollDelayed();
             });
-            leftBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
+
+            prevBtn.addEventListener('click', function() {
                 stopAutoScroll();
                 movePrev();
-                resumeAutoScrollDelayed();
+                restartAutoScrollDelayed();
             });
 
-            // Pause on hover
-            const wrapper = document.querySelector('.scroll-track-wrapper');
-            if (wrapper) {
-                wrapper.addEventListener('mouseenter', function() {
-                    stopAutoScroll();
-                });
-                wrapper.addEventListener('mouseleave', function() {
-                    if (!resumeTimeout) {
-                        resumeAutoScrollDelayed();
-                    }
-                });
-            }
-
-            // Touch events for mobile
-            let touchStartX = 0;
-            let touchCurrentX = 0;
-            let isDragging = false;
-
-            wrapper.addEventListener('touchstart', function(e) {
-                touchStartX = e.touches[0].clientX;
-                isDragging = true;
-                stopAutoScroll();
-            }, { passive: true });
-
-            wrapper.addEventListener('touchmove', function(e) {
-                if (!isDragging) return;
-                touchCurrentX = e.touches[0].clientX;
-                const diff = touchStartX - touchCurrentX;
-                if (Math.abs(diff) > 5) {
-                    e.preventDefault();
-                }
-            }, { passive: false });
-
-            wrapper.addEventListener('touchend', function(e) {
-                if (!isDragging) return;
-                isDragging = false;
-                const diff = touchStartX - touchCurrentX;
-                if (Math.abs(diff) > 50) {
-                    if (diff > 0) {
-                        moveNext();
-                    } else {
-                        movePrev();
-                    }
-                }
-                resumeAutoScrollDelayed();
-            }, { passive: true });
-
-            // Resize handling
-            let resizeTimeout;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    const oldWidth = itemWidth;
-                    updateItemWidth();
-                    if (oldWidth !== itemWidth && itemWidth > 0) {
-                        const visualOffset = currentIndex * oldWidth;
-                        currentIndex = Math.round(visualOffset / itemWidth);
-                        setTransform(false);
-                    } else {
-                        setTransform(false);
-                    }
-                }, 200);
-            });
-
-            // Initialize
-            updateItemWidth();
+            updateCardWidth();
             setTransform(false);
             startAutoScroll();
+
+            const container = document.querySelector('.carousel-container');
+            container.addEventListener('mouseenter', stopAutoScroll);
+            container.addEventListener('mouseleave', restartAutoScrollDelayed);
+
+            // Click on destination: redirect to destinations.html
+            document.querySelectorAll('.dest-circle').forEach(card => {
+                card.addEventListener('click', function() {
+                    const dest = this.getAttribute('data-dest');
+                    if (dest) {
+                        window.location.href = `destinations.html#country-${dest}`;
+                    }
+                });
+            });
+
+            // Resize handling
+            let resizeTO;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTO);
+                resizeTO = setTimeout(refresh, 150);
+            });
+            window.addEventListener('orientationchange', function() {
+                setTimeout(refresh, 50);
+            });
         })();
     </script>
 </body>
