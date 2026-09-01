@@ -7,23 +7,28 @@
     <meta name="description" content="Study abroad with Scholar Port Consultancy. Apply now for scholarships up to 100%. Study in India, USA, Poland, China, Germany and more.">
     <meta name="keywords" content="study abroad, scholarships, education consultancy, study in India, study in China, MBBS abroad">
     <meta name="author" content="Scholar Port Consultancy">
-    <link rel="canonical" href="https://scholarportconsultancy.github.io/index.html">
+    
+    <!-- ✅ FIXED: Correct GitHub Pages URL -->
+    <link rel="canonical" href="https://enzofarai.github.io/studyportconsultancy/index.html">
 
     <!-- ─── OPEN GRAPH / SOCIAL PREVIEW ─── -->
-    <!-- Replace the domain below with your final custom domain when you move -->
     <meta property="og:title" content="Scholar Port Consultancy – Your Dream, Our Mission">
     <meta property="og:description" content="Apply now for 50% to 100% scholarships. Study abroad with expert guidance.">
-    <meta property="og:image" content="https://scholarportconsultancy.github.io/assets/images/home-preview.png">
+    <!-- ✅ FIXED: Correct image path -->
+    <meta property="og:image" content="https://enzofarai.github.io/studyportconsultancy/assets/images/home-preview.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://scholarportconsultancy.github.io/index.html">
+    <!-- ✅ FIXED: Correct URL -->
+    <meta property="og:url" content="https://enzofarai.github.io/studyportconsultancy/index.html">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Scholar Port Consultancy">
 
     <!-- ─── TWITTER CARD ─── -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Scholar Port Consultancy – Your Dream, Our Mission">
     <meta name="twitter:description" content="Apply now for 50% to 100% scholarships. Study abroad with expert guidance.">
-    <meta name="twitter:image" content="https://scholarportconsultancy.github.io/assets/images/home-preview.png">
+    <!-- ✅ FIXED: Correct image path -->
+    <meta name="twitter:image" content="https://enzofarai.github.io/studyportconsultancy/assets/images/home-preview.png">
 
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -76,7 +81,7 @@
             flex-wrap: wrap;
         }
 
-        /* Destinations Carousel – same as Milestone Global Education */
+        /* Destinations Carousel */
         .destinations-carousel-section {
             background-color: #f8f5f0;
             padding: 60px 0;
@@ -391,47 +396,38 @@
             <div class="carousel-container">
                 <button class="carousel-arrow carousel-arrow-left" id="carousel-prev"><i class="fas fa-chevron-left"></i></button>
                 <div class="carousel-track" id="carousel-track">
-                    <!-- India -->
                     <div class="dest-circle" data-dest="india">
                         <div class="circle-img"><img src="assets/images/destinations/india.jpg" alt="India" loading="lazy"></div>
                         <div class="circle-name">India</div>
                     </div>
-                    <!-- China -->
                     <div class="dest-circle" data-dest="china">
                         <div class="circle-img"><img src="assets/images/destinations/china.jpg" alt="China" loading="lazy"></div>
                         <div class="circle-name">China</div>
                     </div>
-                    <!-- Poland -->
                     <div class="dest-circle" data-dest="poland">
                         <div class="circle-img"><img src="assets/images/destinations/poland.jpg" alt="Poland" loading="lazy"></div>
                         <div class="circle-name">Poland</div>
                     </div>
-                    <!-- Cyprus -->
                     <div class="dest-circle" data-dest="cyprus">
                         <div class="circle-img"><img src="assets/images/destinations/cyprus.jpg" alt="Cyprus" loading="lazy"></div>
                         <div class="circle-name">Cyprus</div>
                     </div>
-                    <!-- Turkey -->
                     <div class="dest-circle" data-dest="turkey">
                         <div class="circle-img"><img src="assets/images/destinations/turkey.jpg" alt="Turkey" loading="lazy"></div>
                         <div class="circle-name">Turkey</div>
                     </div>
-                    <!-- Germany -->
                     <div class="dest-circle" data-dest="germany">
                         <div class="circle-img"><img src="assets/images/destinations/germany.jpg" alt="Germany" loading="lazy"></div>
                         <div class="circle-name">Germany</div>
                     </div>
-                    <!-- Georgia -->
                     <div class="dest-circle" data-dest="georgia">
                         <div class="circle-img"><img src="assets/images/destinations/georgia.jpg" alt="Georgia" loading="lazy"></div>
                         <div class="circle-name">Georgia</div>
                     </div>
-                    <!-- USA -->
                     <div class="dest-circle" data-dest="usa">
                         <div class="circle-img"><img src="assets/images/destinations/usa.jpg" alt="USA" loading="lazy"></div>
                         <div class="circle-name">USA</div>
                     </div>
-                    <!-- Somewhere Else -->
                     <div class="dest-circle" data-dest="somewhere-else">
                         <div class="circle-img"><img src="assets/images/destinations/somewhere-else.jpg" alt="Somewhere Else" loading="lazy"></div>
                         <div class="circle-name">Somewhere Else</div>
@@ -548,10 +544,8 @@
     <div id="footer-placeholder"></div>
     <div id="modals-placeholder"></div>
 
-    <script src="js/header-footer.js">
-    </script>
-    <script src="js/modals.js">
-    </script>
+    <script src="js/header-footer.js"></script>
+    <script src="js/modals.js"></script>
     <script>
         // ============================
         // CAROUSEL – Infinite loop
@@ -565,7 +559,6 @@
             let cards = Array.from(track.children);
             const cloneCount = 3;
 
-            // Clone for infinite effect
             for (let i = 0; i < cloneCount; i++) {
                 const firstClone = cards[i].cloneNode(true);
                 const lastClone = cards[cards.length - 1 - i].cloneNode(true);
@@ -655,7 +648,6 @@
                 autoScrollDelayTimeout = setTimeout(() => startAutoScroll(), 4000);
             }
 
-            // Arrow buttons
             nextBtn.addEventListener('click', function() {
                 stopAutoScroll();
                 moveNext();
@@ -676,7 +668,6 @@
             container.addEventListener('mouseenter', stopAutoScroll);
             container.addEventListener('mouseleave', restartAutoScrollDelayed);
 
-            // Click on destination: redirect to destinations.html
             document.querySelectorAll('.dest-circle').forEach(card => {
                 card.addEventListener('click', function() {
                     const dest = this.getAttribute('data-dest');
@@ -686,7 +677,6 @@
                 });
             });
 
-            // Resize handling
             let resizeTO;
             window.addEventListener('resize', function() {
                 clearTimeout(resizeTO);
