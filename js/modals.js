@@ -107,7 +107,21 @@ function handleConsultationForm(e) {
         year: document.getElementById('consultation-study-year').value,
         month: document.getElementById('consultation-intake-month').value
     };
-    const msg = `Booking Consultation\n\nFull name: ${data.fullName}\nEmail: ${data.email}\nMobile: ${data.countryCode} ${data.phone}\nResidence: ${data.countryResidence}\nNationality: ${data.nationality}\nCourse: ${data.course}\nDestination: ${data.destination}\nLevel: ${data.level}\nYear: ${data.year}\nIntake: ${data.month}`;
+
+    // Format with numbered list and emoji header
+    const msg = `📋 BOOKING CONSULTATION
+
+1. *Full Name:* ${data.fullName}
+2. *Email:* ${data.email}
+3. *Mobile:* ${data.countryCode} ${data.phone}
+4. *Residence:* ${data.countryResidence}
+5. *Nationality:* ${data.nationality}
+6. *Course:* ${data.course}
+7. *Destination:* ${data.destination}
+8. *Level:* ${data.level}
+9. *Year:* ${data.year}
+10. *Intake:* ${data.month}`;
+
     closeModal('consultation-modal');
     window.open(`https://wa.me/917696286326?text=${encodeURIComponent(msg)}`, '_blank');
 }
@@ -127,7 +141,21 @@ function handleApplicationForm(e) {
         year: document.getElementById('application-study-year').value,
         month: document.getElementById('application-intake-month').value
     };
-    const msg = `Application\n\nFull name: ${data.fullName}\nEmail: ${data.email}\nMobile: ${data.countryCode} ${data.phone}\nResidence: ${data.countryResidence}\nNationality: ${data.nationality}\nCourse: ${data.course}\nDestination: ${data.destination}\nLevel: ${data.level}\nYear: ${data.year}\nIntake: ${data.month}`;
+
+    // Format with numbered list and emoji header
+    const msg = `📋 APPLICATION
+
+1. *Full Name:* ${data.fullName}
+2. *Email:* ${data.email}
+3. *Mobile:* ${data.countryCode} ${data.phone}
+4. *Residence:* ${data.countryResidence}
+5. *Nationality:* ${data.nationality}
+6. *Course:* ${data.course}
+7. *Destination:* ${data.destination}
+8. *Level:* ${data.level}
+9. *Year:* ${data.year}
+10. *Intake:* ${data.month}`;
+
     closeModal('application-modal');
     window.open(`https://wa.me/917696286326?text=${encodeURIComponent(msg)}`, '_blank');
 }
