@@ -45,70 +45,56 @@
         .hero p { font-size: 1.2rem; max-width: 650px; margin: 0 auto 30px; opacity: 0.9; }
         .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
 
-        /* Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            padding: 40px 0;
-            background: white;
-            border-bottom: 1px solid #f0ebe5;
-        }
-        .stat-item { text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--secondary); }
-        .stat-label { font-size: 0.85rem; color: var(--gray); margin-top: 4px; }
-
-        /* Circular Destinations Scroll */
+        /* Circular Destinations Scroll – Infinite Loop */
         .destinations-scroll-section {
             padding: 60px 0;
             background: var(--light);
         }
         .scroll-container {
-            display: flex;
-            align-items: center;
             position: relative;
             width: 100%;
             max-width: 1300px;
             margin: 0 auto;
             padding: 0 50px;
+            overflow: hidden;
+        }
+        .scroll-track-wrapper {
+            overflow: hidden;
+            border-radius: 32px;
+            background: #ffffff;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            padding: 28px 16px;
         }
         .scroll-track {
             display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 28px 16px;
-            background: #ffffff;
-            border-radius: 32px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-            width: 100%;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            align-items: center;
-            gap: 28px;
+            gap: 32px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+            width: max-content;
         }
-        .scroll-track::-webkit-scrollbar { display: none; }
         .dest-circle {
             flex: 0 0 auto;
             text-align: center;
             user-select: none;
             cursor: pointer;
             transition: transform 0.25s cubic-bezier(.34, 1.56, .64, 1);
+            width: 130px;
         }
-        .dest-circle:hover { transform: translateY(-4px); }
+        .dest-circle:hover { transform: translateY(-6px) scale(1.03); }
         .dest-circle .circle-img {
-            width: 110px;
-            height: 110px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             overflow: hidden;
-            margin: 0 auto 12px;
+            margin: 0 auto 14px;
             background: #e8ecf0;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-            border: 2px solid #e9edf2;
+            border: 3px solid #e9edf2;
             transition: box-shadow 0.3s, border-color 0.3s;
         }
         .dest-circle:hover .circle-img {
-            box-shadow: 0 6px 24px rgba(33,86,110,0.15);
+            box-shadow: 0 6px 28px rgba(33,86,110,0.2);
             border-color: var(--secondary);
         }
         .dest-circle .circle-img img {
@@ -118,13 +104,17 @@
             display: block;
         }
         .dest-circle .circle-name {
-            font-size: 16px;
-            font-weight: 500;
+            font-size: 18px;
+            font-weight: 600;
             color: #1e293b;
             transition: color 0.2s;
         }
         .dest-circle:hover .circle-name { color: var(--primary); }
+
         .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
             background: #ffffff;
             border: 2px solid var(--primary);
             border-radius: 50%;
@@ -132,10 +122,7 @@
             height: 48px;
             font-size: 24px;
             cursor: pointer;
-            position: absolute;
             z-index: 5;
-            top: 50%;
-            transform: translateY(-50%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -247,20 +234,23 @@
         }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .scroll-container { padding: 0 20px; }
-            .dest-circle .circle-img { width: 90px; height: 90px; }
-            .dest-circle .circle-name { font-size: 14px; }
+            .dest-circle { width: 100px; }
+            .dest-circle .circle-img { width: 100px; height: 100px; }
+            .dest-circle .circle-name { font-size: 15px; }
             .scroll-btn { width: 38px; height: 38px; font-size: 20px; }
-            .scroll-track { gap: 22px; padding: 20px 12px; }
+            .scroll-track { gap: 24px; }
+            .scroll-track-wrapper { padding: 20px 12px; }
             .welcome-grid { flex-direction: column; }
         }
         @media (max-width: 480px) {
             .scroll-container { padding: 0 12px; }
-            .dest-circle .circle-img { width: 72px; height: 72px; }
-            .dest-circle .circle-name { font-size: 12px; }
+            .dest-circle { width: 80px; }
+            .dest-circle .circle-img { width: 80px; height: 80px; }
+            .dest-circle .circle-name { font-size: 13px; }
             .scroll-btn { width: 32px; height: 32px; font-size: 16px; }
-            .scroll-track { gap: 16px; padding: 16px 10px; border-radius: 20px; }
+            .scroll-track { gap: 16px; }
+            .scroll-track-wrapper { padding: 16px 10px; border-radius: 20px; }
             .hero h1 { font-size: 1.6rem; }
             .welcome-card { padding: 25px; }
         }
@@ -281,15 +271,7 @@
         </div>
     </section>
 
-    <!-- Stats -->
-    <div class="stats-grid container">
-        <div class="stat-item"><div class="stat-number">7+</div><div class="stat-label">Study Destinations</div></div>
-        <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Scholarships Available</div></div>
-        <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">University Partners</div></div>
-        <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Student Support</div></div>
-    </div>
-
-    <!-- Study Destinations – Circular Scroll -->
+    <!-- Study Destinations – Circular Scroll (Infinite Loop) -->
     <section class="destinations-scroll-section">
         <div class="container">
             <div class="section-title">
@@ -298,42 +280,9 @@
             </div>
             <div class="scroll-container">
                 <button class="scroll-btn left" id="scrollLeftBtn" aria-label="Scroll left">‹</button>
-                <div class="scroll-track" id="destinationScroll">
-                    <div class="dest-circle" data-dest="india">
-                        <div class="circle-img"><img src="assets/images/destinations/india.jpg" alt="India" loading="lazy"></div>
-                        <div class="circle-name">India</div>
-                    </div>
-                    <div class="dest-circle" data-dest="china">
-                        <div class="circle-img"><img src="assets/images/destinations/china.jpg" alt="China" loading="lazy"></div>
-                        <div class="circle-name">China</div>
-                    </div>
-                    <div class="dest-circle" data-dest="poland">
-                        <div class="circle-img"><img src="assets/images/destinations/poland.jpg" alt="Poland" loading="lazy"></div>
-                        <div class="circle-name">Poland</div>
-                    </div>
-                    <div class="dest-circle" data-dest="cyprus">
-                        <div class="circle-img"><img src="assets/images/destinations/cyprus.jpg" alt="Cyprus" loading="lazy"></div>
-                        <div class="circle-name">Cyprus</div>
-                    </div>
-                    <div class="dest-circle" data-dest="turkey">
-                        <div class="circle-img"><img src="assets/images/destinations/turkey.jpg" alt="Turkey" loading="lazy"></div>
-                        <div class="circle-name">Turkey</div>
-                    </div>
-                    <div class="dest-circle" data-dest="germany">
-                        <div class="circle-img"><img src="assets/images/destinations/germany.jpg" alt="Germany" loading="lazy"></div>
-                        <div class="circle-name">Germany</div>
-                    </div>
-                    <div class="dest-circle" data-dest="georgia">
-                        <div class="circle-img"><img src="assets/images/destinations/georgia.jpg" alt="Georgia" loading="lazy"></div>
-                        <div class="circle-name">Georgia</div>
-                    </div>
-                    <div class="dest-circle" data-dest="usa">
-                        <div class="circle-img"><img src="assets/images/destinations/usa.jpg" alt="USA" loading="lazy"></div>
-                        <div class="circle-name">USA</div>
-                    </div>
-                    <div class="dest-circle" data-dest="somewhere-else">
-                        <div class="circle-img"><img src="assets/images/destinations/somewhere-else.jpg" alt="Somewhere Else" loading="lazy"></div>
-                        <div class="circle-name">Somewhere Else</div>
+                <div class="scroll-track-wrapper">
+                    <div class="scroll-track" id="destinationScroll">
+                        <!-- Items will be generated by JavaScript -->
                     </div>
                 </div>
                 <button class="scroll-btn right" id="scrollRightBtn" aria-label="Scroll right">›</button>
@@ -448,110 +397,234 @@
     <script src="js/modals.js"></script>
     <script>
         // ============================
-        // CIRCULAR DESTINATIONS SCROLL
+        // INFINITE LOOP CAROUSEL
         // ============================
         (function() {
-            const container = document.getElementById('destinationScroll');
+            const track = document.getElementById('destinationScroll');
             const leftBtn = document.getElementById('scrollLeftBtn');
             const rightBtn = document.getElementById('scrollRightBtn');
-            if (!container) return;
+            if (!track) return;
 
-            const SCROLL_SPEED = 4;
-            const INTERVAL_MS = 28;
-            const PAUSE_DURATION = 4000;
+            // Destination data
+            const destinations = [
+                { id: 'india', name: 'India', img: 'assets/images/destinations/india.jpg' },
+                { id: 'china', name: 'China', img: 'assets/images/destinations/china.jpg' },
+                { id: 'poland', name: 'Poland', img: 'assets/images/destinations/poland.jpg' },
+                { id: 'cyprus', name: 'Cyprus', img: 'assets/images/destinations/cyprus.jpg' },
+                { id: 'turkey', name: 'Turkey', img: 'assets/images/destinations/turkey.jpg' },
+                { id: 'germany', name: 'Germany', img: 'assets/images/destinations/germany.jpg' },
+                { id: 'georgia', name: 'Georgia', img: 'assets/images/destinations/georgia.jpg' },
+                { id: 'usa', name: 'USA', img: 'assets/images/destinations/usa.jpg' },
+                { id: 'somewhere-else', name: 'Somewhere Else', img: 'assets/images/destinations/somewhere-else.jpg' }
+            ];
 
-            let scrollDirection = 'right';
-            let intervalId = null;
+            // Build items
+            function buildItem(dest) {
+                const div = document.createElement('div');
+                div.className = 'dest-circle';
+                div.setAttribute('data-dest', dest.id);
+                div.innerHTML = `
+                    <div class="circle-img"><img src="${dest.img}" alt="${dest.name}" loading="lazy"></div>
+                    <div class="circle-name">${dest.name}</div>
+                `;
+                div.addEventListener('click', function() {
+                    window.location.href = `destinations.html#country-${this.getAttribute('data-dest')}`;
+                });
+                return div;
+            }
+
+            // Clone for infinite loop: we need enough items to fill the viewport + buffer
+            // We'll render 3x the items: original + clones on each side
+            const cloneCount = 2; // number of full sets to clone on each side
+            let allItems = [];
+            
+            // Build the base set
+            const baseItems = destinations.map(d => buildItem(d));
+            
+            // Build the full track: [clone2][clone1][original][clone1][clone2]
+            for (let c = 0; c < cloneCount; c++) {
+                destinations.forEach((d, idx) => {
+                    const clone = buildItem(d);
+                    track.appendChild(clone);
+                    allItems.push(clone);
+                });
+            }
+            // Original set
+            destinations.forEach((d, idx) => {
+                const item = buildItem(d);
+                track.appendChild(item);
+                allItems.push(item);
+            });
+            // Clones after
+            for (let c = 0; c < cloneCount; c++) {
+                destinations.forEach((d, idx) => {
+                    const clone = buildItem(d);
+                    track.appendChild(clone);
+                    allItems.push(clone);
+                });
+            }
+
+            const totalItems = allItems.length;
+            const itemsPerSet = destinations.length;
+            const totalSets = cloneCount * 2 + 1; // 2 + 1 + 2 = 5 sets
+            const startIndex = cloneCount * itemsPerSet; // index of first original item
+
+            let currentIndex = startIndex;
+            let itemWidth = 0;
+            const gap = 32;
+            let isTransitioning = false;
+            let autoInterval;
             let isPaused = false;
             let resumeTimeout = null;
-            let isHovering = false;
 
-            function tick() {
-                if (isPaused) return;
-                const maxScroll = container.scrollWidth - container.clientWidth;
-                if (maxScroll <= 0) return;
-                if (scrollDirection === 'right') {
-                    container.scrollLeft += SCROLL_SPEED;
-                    if (container.scrollLeft >= maxScroll - 2) scrollDirection = 'left';
-                } else {
-                    container.scrollLeft -= SCROLL_SPEED;
-                    if (container.scrollLeft <= 2) scrollDirection = 'right';
+            function updateItemWidth() {
+                const firstItem = track.querySelector('.dest-circle');
+                if (firstItem) itemWidth = firstItem.offsetWidth + gap;
+            }
+
+            function setTransform(animate = true) {
+                if (!animate) track.style.transition = 'none';
+                track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                if (!animate) {
+                    track.offsetHeight; // force reflow
+                    track.style.transition = '';
                 }
             }
 
+            function moveToIndex(newIndex, animate = true) {
+                if (isTransitioning && animate) return;
+                isTransitioning = true;
+                currentIndex = newIndex;
+                setTransform(animate);
+            }
+
+            function moveNext() {
+                if (isPaused || isTransitioning) return;
+                moveToIndex(currentIndex + 1, true);
+            }
+
+            function movePrev() {
+                if (isPaused || isTransitioning) return;
+                moveToIndex(currentIndex - 1, true);
+            }
+
+            function onTransitionEnd() {
+                isTransitioning = false;
+                // If we're at the end of the cloned section, jump back to the corresponding position in the original
+                if (currentIndex >= itemsPerSet * (cloneCount * 2 + 1) - cloneCount) {
+                    // At the end of the last clone set, jump to the start of the original
+                    const newIndex = startIndex + (currentIndex - (itemsPerSet * (cloneCount * 2 + 1) - cloneCount));
+                    moveToIndex(newIndex, false);
+                } else if (currentIndex < cloneCount * itemsPerSet) {
+                    // At the start of the first clone set, jump to the end of the original
+                    const newIndex = startIndex + (itemsPerSet * (cloneCount * 2) - (cloneCount * itemsPerSet - currentIndex));
+                    moveToIndex(newIndex, false);
+                }
+            }
+
+            track.addEventListener('transitionend', onTransitionEnd);
+
             function startAutoScroll() {
-                if (intervalId) clearInterval(intervalId);
-                intervalId = setInterval(tick, INTERVAL_MS);
+                if (autoInterval) clearInterval(autoInterval);
+                autoInterval = setInterval(() => moveNext(), 4000);
                 isPaused = false;
             }
 
             function stopAutoScroll() {
-                if (intervalId) { clearInterval(intervalId); intervalId = null; }
+                if (autoInterval) clearInterval(autoInterval);
+                if (resumeTimeout) clearTimeout(resumeTimeout);
                 isPaused = true;
             }
 
-            function resumeAutoScroll() {
-                if (intervalId) return;
-                if (isHovering) return;
-                isPaused = false;
-                intervalId = setInterval(tick, INTERVAL_MS);
-            }
-
-            function pauseAndResumeLater() {
-                if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
-                stopAutoScroll();
+            function resumeAutoScrollDelayed() {
+                if (resumeTimeout) clearTimeout(resumeTimeout);
                 resumeTimeout = setTimeout(() => {
-                    resumeTimeout = null;
-                    if (!isHovering) resumeAutoScroll();
-                }, PAUSE_DURATION);
+                    isPaused = false;
+                    startAutoScroll();
+                }, 4000);
             }
 
-            function scrollBy(amount) {
-                pauseAndResumeLater();
-                container.scrollLeft += amount;
-            }
-
-            leftBtn.addEventListener('click', function(e) { e.stopPropagation(); scrollBy(-220); });
-            rightBtn.addEventListener('click', function(e) { e.stopPropagation(); scrollBy(220); });
-
-            container.addEventListener('mouseenter', function() {
-                isHovering = true;
+            // Arrow buttons
+            rightBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
                 stopAutoScroll();
-                if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
+                moveNext();
+                resumeAutoScrollDelayed();
             });
-            container.addEventListener('mouseleave', function() {
-                isHovering = false;
-                if (!resumeTimeout && !intervalId) resumeAutoScroll();
+            leftBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                stopAutoScroll();
+                movePrev();
+                resumeAutoScrollDelayed();
             });
 
+            // Pause on hover
+            const wrapper = document.querySelector('.scroll-track-wrapper');
+            wrapper.addEventListener('mouseenter', function() {
+                stopAutoScroll();
+            });
+            wrapper.addEventListener('mouseleave', function() {
+                if (!resumeTimeout) {
+                    resumeAutoScrollDelayed();
+                }
+            });
+
+            // Touch events for mobile
             let touchStartX = 0;
-            container.addEventListener('touchstart', function(e) {
+            let touchCurrentX = 0;
+            let isDragging = false;
+
+            wrapper.addEventListener('touchstart', function(e) {
                 touchStartX = e.touches[0].clientX;
+                isDragging = true;
                 stopAutoScroll();
-                if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
-            }, { passive: true });
-            container.addEventListener('touchend', function(e) {
-                if (!isHovering) pauseAndResumeLater();
             }, { passive: true });
 
+            wrapper.addEventListener('touchmove', function(e) {
+                if (!isDragging) return;
+                touchCurrentX = e.touches[0].clientX;
+                const diff = touchStartX - touchCurrentX;
+                // Only prevent default if we're actually scrolling horizontally
+                if (Math.abs(diff) > 5) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
+            wrapper.addEventListener('touchend', function(e) {
+                if (!isDragging) return;
+                isDragging = false;
+                const diff = touchStartX - touchCurrentX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        moveNext();
+                    } else {
+                        movePrev();
+                    }
+                }
+                resumeAutoScrollDelayed();
+            }, { passive: true });
+
+            // Resize handling
             let resizeTimeout;
             window.addEventListener('resize', function() {
                 clearTimeout(resizeTimeout);
                 resizeTimeout = setTimeout(() => {
-                    const maxScroll = container.scrollWidth - container.clientWidth;
-                    if (container.scrollLeft >= maxScroll - 2) scrollDirection = 'left';
-                    else if (container.scrollLeft <= 2) scrollDirection = 'right';
+                    const oldWidth = itemWidth;
+                    updateItemWidth();
+                    if (oldWidth !== itemWidth && itemWidth > 0) {
+                        // Recalculate position to maintain visual alignment
+                        const visualOffset = currentIndex * oldWidth;
+                        currentIndex = Math.round(visualOffset / itemWidth);
+                        setTransform(false);
+                    } else {
+                        setTransform(false);
+                    }
                 }, 200);
             });
 
-            // Click on destination: redirect to destinations.html#country-{name}
-            document.querySelectorAll('.dest-circle').forEach(el => {
-                el.addEventListener('click', function() {
-                    const dest = this.getAttribute('data-dest');
-                    if (dest) window.location.href = `destinations.html#country-${dest}`;
-                });
-            });
-
+            // Initialize
+            updateItemWidth();
+            setTransform(false);
             startAutoScroll();
         })();
     </script>
