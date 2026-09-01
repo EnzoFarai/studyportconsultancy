@@ -44,6 +44,16 @@
         .hero h1 span { color: var(--secondary); }
         .hero p { font-size: 1.2rem; max-width: 650px; margin: 0 auto 30px; opacity: 0.9; }
         .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        /* Apply Now button stands out with secondary color */
+        .hero-buttons .btn-apply {
+            background: var(--secondary);
+            color: var(--dark);
+            border-color: var(--secondary);
+        }
+        .hero-buttons .btn-apply:hover {
+            background: transparent;
+            color: var(--secondary);
+        }
 
         /* Circular Destinations Scroll – Infinite Loop */
         .destinations-scroll-section {
@@ -55,8 +65,7 @@
             width: 100%;
             max-width: 1300px;
             margin: 0 auto;
-            padding: 0 50px;
-            overflow: hidden;
+            padding: 0 60px; /* space for arrows */
         }
         .scroll-track-wrapper {
             overflow: hidden;
@@ -118,32 +127,36 @@
             background: #ffffff;
             border: 2px solid var(--primary);
             border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            font-size: 24px;
+            width: 52px;
+            height: 52px;
+            font-size: 26px;
             cursor: pointer;
-            z-index: 5;
+            z-index: 10;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 16px rgba(33,86,110,0.12);
+            box-shadow: 0 4px 16px rgba(33,86,110,0.15);
             transition: all 0.2s;
             color: var(--primary);
             user-select: none;
             line-height: 1;
             font-weight: 300;
             padding: 0;
+            pointer-events: auto;
         }
         .scroll-btn:hover {
             background: var(--primary);
             color: #ffffff;
             border-color: var(--primary);
-            box-shadow: 0 8px 28px rgba(33,86,110,0.25);
-            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 8px 28px rgba(33,86,110,0.3);
+            transform: translateY(-50%) scale(1.08);
         }
         .scroll-btn:active { transform: translateY(-50%) scale(0.92); }
-        .scroll-btn.left { left: 0; }
-        .scroll-btn.right { right: 0; }
+        .scroll-btn.left { left: 8px; }
+        .scroll-btn.right { right: 8px; }
+
+        /* View All button */
+        .view-all-wrap { text-align: center; margin-top: 30px; }
 
         /* Welcome Section */
         .welcome-section {
@@ -234,21 +247,21 @@
         }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            .scroll-container { padding: 0 20px; }
+            .scroll-container { padding: 0 40px; }
             .dest-circle { width: 100px; }
             .dest-circle .circle-img { width: 100px; height: 100px; }
             .dest-circle .circle-name { font-size: 15px; }
-            .scroll-btn { width: 38px; height: 38px; font-size: 20px; }
+            .scroll-btn { width: 44px; height: 44px; font-size: 22px; }
             .scroll-track { gap: 24px; }
             .scroll-track-wrapper { padding: 20px 12px; }
             .welcome-grid { flex-direction: column; }
         }
         @media (max-width: 480px) {
-            .scroll-container { padding: 0 12px; }
+            .scroll-container { padding: 0 30px; }
             .dest-circle { width: 80px; }
             .dest-circle .circle-img { width: 80px; height: 80px; }
             .dest-circle .circle-name { font-size: 13px; }
-            .scroll-btn { width: 32px; height: 32px; font-size: 16px; }
+            .scroll-btn { width: 36px; height: 36px; font-size: 18px; }
             .scroll-track { gap: 16px; }
             .scroll-track-wrapper { padding: 16px 10px; border-radius: 20px; }
             .hero h1 { font-size: 1.6rem; }
@@ -265,7 +278,7 @@
             <h1>Your Dream, <span>Our Mission</span></h1>
             <p>Study abroad with expert guidance. Scholarships up to 100% available. A Level & O Level accepted.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn btn-primary apply-now-btn">Apply Now</a>
+                <a href="#" class="btn btn-apply apply-now-btn">Apply Now</a>
                 <a href="#" class="btn btn-secondary consultation-btn">Free Consultation</a>
             </div>
         </div>
@@ -286,6 +299,9 @@
                     </div>
                 </div>
                 <button class="scroll-btn right" id="scrollRightBtn" aria-label="Scroll right">›</button>
+            </div>
+            <div class="view-all-wrap">
+                <a href="destinations.html" class="btn btn-outline">View All →</a>
             </div>
         </div>
     </section>
@@ -433,8 +449,6 @@
                 return div;
             }
 
-            // Clone for infinite loop: we need enough items to fill the viewport + buffer
-            // We'll render 3x the items: original + clones on each side
             const cloneCount = 2; // number of full sets to clone on each side
             let allItems = [];
             
@@ -443,21 +457,21 @@
             
             // Build the full track: [clone2][clone1][original][clone1][clone2]
             for (let c = 0; c < cloneCount; c++) {
-                destinations.forEach((d, idx) => {
+                destinations.forEach((d) => {
                     const clone = buildItem(d);
                     track.appendChild(clone);
                     allItems.push(clone);
                 });
             }
             // Original set
-            destinations.forEach((d, idx) => {
+            destinations.forEach((d) => {
                 const item = buildItem(d);
                 track.appendChild(item);
                 allItems.push(item);
             });
             // Clones after
             for (let c = 0; c < cloneCount; c++) {
-                destinations.forEach((d, idx) => {
+                destinations.forEach((d) => {
                     const clone = buildItem(d);
                     track.appendChild(clone);
                     allItems.push(clone);
@@ -466,7 +480,6 @@
 
             const totalItems = allItems.length;
             const itemsPerSet = destinations.length;
-            const totalSets = cloneCount * 2 + 1; // 2 + 1 + 2 = 5 sets
             const startIndex = cloneCount * itemsPerSet; // index of first original item
 
             let currentIndex = startIndex;
@@ -512,11 +525,9 @@
                 isTransitioning = false;
                 // If we're at the end of the cloned section, jump back to the corresponding position in the original
                 if (currentIndex >= itemsPerSet * (cloneCount * 2 + 1) - cloneCount) {
-                    // At the end of the last clone set, jump to the start of the original
                     const newIndex = startIndex + (currentIndex - (itemsPerSet * (cloneCount * 2 + 1) - cloneCount));
                     moveToIndex(newIndex, false);
                 } else if (currentIndex < cloneCount * itemsPerSet) {
-                    // At the start of the first clone set, jump to the end of the original
                     const newIndex = startIndex + (itemsPerSet * (cloneCount * 2) - (cloneCount * itemsPerSet - currentIndex));
                     moveToIndex(newIndex, false);
                 }
@@ -584,7 +595,6 @@
                 if (!isDragging) return;
                 touchCurrentX = e.touches[0].clientX;
                 const diff = touchStartX - touchCurrentX;
-                // Only prevent default if we're actually scrolling horizontally
                 if (Math.abs(diff) > 5) {
                     e.preventDefault();
                 }
@@ -612,7 +622,6 @@
                     const oldWidth = itemWidth;
                     updateItemWidth();
                     if (oldWidth !== itemWidth && itemWidth > 0) {
-                        // Recalculate position to maintain visual alignment
                         const visualOffset = currentIndex * oldWidth;
                         currentIndex = Math.round(visualOffset / itemWidth);
                         setTransform(false);
