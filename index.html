@@ -8,12 +8,22 @@
     <meta name="keywords" content="study abroad, scholarships, education consultancy, study in India, study in China, MBBS abroad">
     <meta name="author" content="Scholar Port Consultancy">
     <link rel="canonical" href="https://scholarportconsultancy.github.io/index.html">
+
+    <!-- ─── OPEN GRAPH / SOCIAL PREVIEW ─── -->
     <meta property="og:title" content="Scholar Port Consultancy – Your Dream, Our Mission">
     <meta property="og:description" content="Apply now for 50% to 100% scholarships. Study abroad with expert guidance.">
-    <meta property="og:image" content="https://scholarportconsultancy.github.io/assets/images/og-image.jpg">
+    <meta property="og:image" content="https://scholarportconsultancy.github.io/assets/images/home-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://scholarportconsultancy.github.io/index.html">
     <meta property="og:type" content="website">
+
+    <!-- ─── TWITTER CARD ─── -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Scholar Port Consultancy – Your Dream, Our Mission">
+    <meta name="twitter:description" content="Apply now for 50% to 100% scholarships. Study abroad with expert guidance.">
+    <meta name="twitter:image" content="https://scholarportconsultancy.github.io/assets/images/home-preview.png">
+
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,14 +46,34 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(212,165,116,0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
             border-radius: 50%;
         }
-        .hero .container { position: relative; z-index: 1; }
-        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; }
-        .hero h1 span { color: var(--secondary); }
-        .hero p { font-size: 1.2rem; max-width: 650px; margin: 0 auto 30px; opacity: 0.9; }
-        .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .hero h1 span {
+            color: var(--secondary);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
         /* Destinations Carousel – same as Milestone Global Education */
         .destinations-carousel-section {
@@ -58,7 +88,7 @@
         .carousel-track {
             display: flex;
             gap: 25px;
-            transition: transform 0.5s cubic-bezier(0.2,0.9,0.4,1.1);
+            transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             will-change: transform;
             cursor: pointer;
         }
@@ -84,7 +114,7 @@
             transition: box-shadow 0.3s, border-color 0.3s;
         }
         .dest-circle:hover .circle-img {
-            box-shadow: 0 8px 30px rgba(33,86,110,0.15);
+            box-shadow: 0 8px 30px rgba(33, 86, 110, 0.15);
             border-color: var(--secondary);
         }
         .dest-circle .circle-img img {
@@ -99,7 +129,9 @@
             color: #1e293b;
             transition: color 0.2s;
         }
-        .dest-circle:hover .circle-name { color: var(--primary); }
+        .dest-circle:hover .circle-name {
+            color: var(--primary);
+        }
 
         .carousel-arrow {
             position: absolute;
@@ -118,7 +150,7 @@
             justify-content: center;
             font-size: 1.3rem;
             transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 15px rgba(33,86,110,0.2);
+            box-shadow: 0 4px 15px rgba(33, 86, 110, 0.2);
         }
         .carousel-arrow:hover {
             background: var(--secondary);
@@ -127,8 +159,12 @@
         .carousel-arrow:active {
             transform: translateY(-50%) scale(0.95);
         }
-        .carousel-arrow-left { left: 10px; }
-        .carousel-arrow-right { right: 10px; }
+        .carousel-arrow-left {
+            left: 10px;
+        }
+        .carousel-arrow-right {
+            right: 10px;
+        }
 
         .view-all-link {
             display: inline-block;
@@ -157,13 +193,37 @@
             gap: 50px;
             flex-wrap: wrap;
         }
-        .welcome-text { flex: 1; }
-        .welcome-text h2 { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
-        .welcome-text p { color: #555; margin-bottom: 15px; line-height: 1.7; }
-        .welcome-card { flex: 1; background: var(--light); border-radius: 16px; padding: 40px; text-align: center; }
-        .welcome-card i { font-size: 4rem; color: var(--secondary); }
-        .welcome-card h3 { margin: 15px 0 5px; color: var(--primary); }
-        .welcome-card p { color: var(--gray); }
+        .welcome-text {
+            flex: 1;
+        }
+        .welcome-text h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .welcome-text p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        .welcome-card {
+            flex: 1;
+            background: var(--light);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+        .welcome-card i {
+            font-size: 4rem;
+            color: var(--secondary);
+        }
+        .welcome-card h3 {
+            margin: 15px 0 5px;
+            color: var(--primary);
+        }
+        .welcome-card p {
+            color: var(--gray);
+        }
 
         /* Programs Categorized */
         .programs-section {
@@ -203,7 +263,10 @@
             border-color: var(--secondary);
             background: var(--light);
         }
-        .program-tag i { color: var(--secondary); margin-right: 6px; }
+        .program-tag i {
+            color: var(--secondary);
+            margin-right: 6px;
+        }
 
         /* Why Choose */
         .why-section {
@@ -224,32 +287,81 @@
             border-top: 3px solid var(--secondary);
             transition: var(--transition);
         }
-        .why-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.04); }
-        .why-card i { font-size: 2rem; color: var(--secondary); }
-        .why-card h4 { margin: 12px 0 5px; color: var(--primary); }
-        .why-card p { color: var(--gray); font-size: 0.9rem; }
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+        .why-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+        .why-card h4 {
+            margin: 12px 0 5px;
+            color: var(--primary);
+        }
+        .why-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
 
         /* Responsive */
         @media (max-width: 992px) {
-            .programs-grid { grid-template-columns: 1fr; }
-            .dest-circle { flex: 0 0 150px; }
-            .dest-circle .circle-img { width: 150px; height: 150px; }
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            .dest-circle {
+                flex: 0 0 150px;
+            }
+            .dest-circle .circle-img {
+                width: 150px;
+                height: 150px;
+            }
         }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .dest-circle { flex: 0 0 120px; }
-            .dest-circle .circle-img { width: 120px; height: 120px; }
-            .dest-circle .circle-name { font-size: 0.95rem; }
-            .carousel-arrow { width: 36px; height: 36px; font-size: 1rem; }
-            .welcome-grid { flex-direction: column; }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .dest-circle {
+                flex: 0 0 120px;
+            }
+            .dest-circle .circle-img {
+                width: 120px;
+                height: 120px;
+            }
+            .dest-circle .circle-name {
+                font-size: 0.95rem;
+            }
+            .carousel-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+            .welcome-grid {
+                flex-direction: column;
+            }
         }
         @media (max-width: 480px) {
-            .dest-circle { flex: 0 0 100px; }
-            .dest-circle .circle-img { width: 100px; height: 100px; }
-            .dest-circle .circle-name { font-size: 0.85rem; }
-            .carousel-arrow { width: 32px; height: 32px; font-size: 0.8rem; }
-            .hero h1 { font-size: 1.6rem; }
-            .welcome-card { padding: 25px; }
+            .dest-circle {
+                flex: 0 0 100px;
+            }
+            .dest-circle .circle-img {
+                width: 100px;
+                height: 100px;
+            }
+            .dest-circle .circle-name {
+                font-size: 0.85rem;
+            }
+            .carousel-arrow {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .welcome-card {
+                padding: 25px;
+            }
         }
     </style>
 </head>
@@ -435,8 +547,10 @@
     <div id="footer-placeholder"></div>
     <div id="modals-placeholder"></div>
 
-    <script src="js/header-footer.js"></script>
-    <script src="js/modals.js"></script>
+    <script src="js/header-footer.js">
+    </script>
+    <script src="js/modals.js">
+    </script>
     <script>
         // ============================
         // CAROUSEL – Same as Milestone Global Education
@@ -449,7 +563,7 @@
 
             let cards = Array.from(track.children);
             const cloneCount = 3;
-            
+
             // Clone for infinite effect
             for (let i = 0; i < cloneCount; i++) {
                 const firstClone = cards[i].cloneNode(true);
@@ -458,7 +572,7 @@
                 track.insertBefore(lastClone, track.firstChild);
             }
             cards = Array.from(track.children);
-            
+
             let currentIndex = cloneCount;
             let cardWidth = 0;
             const gap = 25;
